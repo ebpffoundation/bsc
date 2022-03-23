@@ -88,12 +88,9 @@ the content is the same as what was approved.
 Technical Projects can create multiple subordinate projects (such as github repositories) that are governed under the structure agreed on and accepted by the BSC.
 
 A project may want to spin out a new project because the original scope, governance or participants are distinctly different from the original agreed project charter, and not merely an organization of code or minor expansion of scope.
-
 In this case a new project acceptance proposal, as defined above, should be submitted to the BSC.
 
 ## III. Requirements for Technical Projects
-
-Representatives of Technical Projects may attend BSC meetings and contribute work regardless of their stage.
 
 **Acceptance Criteria**
 
@@ -136,9 +133,6 @@ The review includes the following:
 Projects are encouraged to proactively inform the BSC when something
 changes that affects their submission template or Technical Charter (changing a License, security
 reporting process, CoC, etc.), rather than waiting for the next annual review.
-
-It is the responsibility of the project's [mentor](project-mentors.md) to help the project determine
-what needs to be reviewed by the BSC, and keep the BSC informed.
 
 ## V. Mentors
 
