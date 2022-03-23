@@ -92,8 +92,6 @@ In this case a new project acceptance proposal, as defined above, should be subm
 
 ## III. Requirements for Technical Projects
 
-**Acceptance Criteria**
-
 To be considered for acceptance, a project must meet the following requirements:
 
 * It must minimally meet the requirements for a project to be listed as a "landscape" project at https://ebpf.io/projects
