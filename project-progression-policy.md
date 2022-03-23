@@ -37,8 +37,8 @@ and a vote by the Governing Board.
 #### Technical Review
 
 Projects are required to present their proposal at a BSC meeting.
-This proposal should cover all the items in the [Project Submission Template](https://github.com/confidential-computing/governance/blob/master/project-submission-template.md) (TODO: update link)
-and the [Technical Charter template](https://lists.confidentialcomputing.io/g/main/files/BSC/Project%20Submissions/Technical%20Charter%20%28custom+data%29%20--%20LF%20Projects,%20LLC%204-10-2019%20FINAL%20%2811%29.docx)) (TODO: update link).
+This proposal should cover all the items in the [Project Submission Template](project-submission-template.md)
+and the [Technical Charter template](Technical%20Charter%20%28custom+data%29%20--%20LF%20Projects,%20LLC%204-10-2019%20FINAL.docx).
 
 The BSC may ask for changes to bring the project into better alignment with
 the Foundation (adding a governance document to a
@@ -61,9 +61,9 @@ use by, LF Projects, LLC.  Even if no trademarks exist, the current
 policy is that projects be submitted to LF Projects, LLC.
 
 This submission entails sending the proposed Technical Charter (as reviewed
-by the BSC), and a signed Project Contribution Agreement (TODO: link to be provided
-by Governing Board) that assigns trademarks
-to LF Projects, LLC.
+by the BSC), and a signed
+[Project Contribution Agreement](LF%20Projects%20--%20Form%20of%20Trademark%20and%20Account%20Assignment.docx).
+that assigns trademarks to LF Projects, LLC.
 
 This submission might in some cases be done in parallel with, or even
 before, Technical Review.  It is recommended though that this be
