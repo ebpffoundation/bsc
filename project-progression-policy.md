@@ -146,7 +146,7 @@ Responsibilities of a mentor include:
    rather than waiting for the next annual review.
 
 3. Make sure the Technical Project is informed about any eBPF Foundation events
-   of relevance, and inform the BSC about non-Foundation events that
+   of relevance, and the BSC is informed about non-Foundation events that
    the Technical Project is participating in.
 
 4. In order to be a coach to the project maintainers, be familiar with open source best practices,
