@@ -49,4 +49,6 @@ the project; projects are free to use whatever governance structure they want.
 
 3.9. Project Security Response Policy for handling any vulnerabilities reported
 
-3.10. Any additional information the BSC and Board should take into consideration when reviewing your proposal.
+3.10. Expected budget request.  See [Project Benefits](project-progression-policy.md#benefits-of-being-a-recognized-foundation-project) for items that may be requested for potential support.
+
+3.11. Any additional information the BSC and Board should take into consideration when reviewing your proposal.
