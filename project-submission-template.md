@@ -33,7 +33,7 @@ the project; projects are free to use whatever governance structure they want.
 ### Technical Information
 3.1. High level assessment of project synergy with any existing projects under the eBPF Foundation, including how the project compliments/overlaps with existing projects, and potential ways to harmonize over time. Responses may be included both inline and/or in accompanying documentation.
 
-3.2. Project Code of Conduct URL.  We recommend one based on the [Contributor Covenant v2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/) or the [LF Projects Code of Conduct](https://lfprojects.org/policies/code-of-conduct/).
+3.2. Project Code of Conduct URL.  We recommend one based on the [Contributor Covenant v2.0](https://www.contributor-covenant.org/version/2/0/code_of_conduct/) or the [LF Projects Code of Conduct](https://lfprojects.org/policies/code-of-conduct/).
 
 3.3. Source control URL
 
