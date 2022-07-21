@@ -39,4 +39,4 @@ meeting.
 Following the election of new members for the BSC, this repository should be
 updated to reflect the results of the election and the new membership.
 
-[charter]: https://ebpf.io/charter/
+[charter]: https://ebpf.foundation/charter/
