@@ -14,4 +14,4 @@ representatives were nominated to sit on the inaugural eBPF Steering Committee:
 | Brendan Gregg      | Netflix         | BCC/bpftrace             | Maintainer Representative         |
 | Joe Stringer       | Isovalent       | Cilium                   | Maintainer Representative         |
 
-[charter]: https://ebpf.io/charter/
+[charter]: https://ebpf.foundation/charter/
