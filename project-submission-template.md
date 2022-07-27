@@ -23,9 +23,13 @@
 
 2.3. Existing financial sponsorship, if any.
 
-2.4. Trademark status, if any.
+2.4. Was the project previously accepted by any other consortium or foundation?
+     If so, does the project now accept the eBPF Foundation as its primary governance
+     body?
 
-2.5. Proposed Technical Charter, based on the [template](Technical%20Charter%20%28custom+data%29%20--%20LF%20Projects,%20LLC%204-10-2019%20FINAL.docx).
+2.5. Trademark status, if any.
+
+2.6. Proposed Technical Charter, based on the [template](Technical%20Charter%20%28custom+data%29%20--%20LF%20Projects,%20LLC%204-10-2019%20FINAL.docx).
 Include doc as attachment or give URL of doc.  It is ok to change the
 text (e.g., "Technical Steering Committee") to match the actual structure of
 the project; projects are free to use whatever governance structure they want.
