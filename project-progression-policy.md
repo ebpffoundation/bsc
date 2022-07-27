@@ -10,7 +10,7 @@ as well as the [Annual Review Process](#iv-annual-review-process).
 
 Unlike non-Foundation projects in the eBPF project landscape at large, Technical Projects
 can receive benefits that require budgeted funds from the eBPF Foundation, which is
-[chartered](https://ebpf.io/charter/) to "spend funds in support of various open source,
+[chartered](https://ebpf.foundation/charter/) to "spend funds in support of various open source,
 open data and/or open standards projects relating to eBPF technologies, including infrastructure
 and support initiatives related thereto".   By charter, the eBPF Steering Committee (BSC) is
 responsible for "making recommendations to the Governing Board of resource priorities for Technical Projects".
@@ -55,7 +55,7 @@ next step.
 
 #### Legal Submission
 
-As noted in clause 8 of the [eBPF Foundation Charter](https://ebpf.io/charter/),
+As noted in clause 8 of the [eBPF Foundation Charter](https://ebpf.foundation/charter/),
 the Foundation requires that any trademarks be transferred to, or be available for
 use by, LF Projects, LLC.  Even if no trademarks exist, the current
 policy is that projects be submitted to LF Projects, LLC.
