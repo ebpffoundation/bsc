@@ -94,7 +94,12 @@ In this case a new project acceptance proposal, as defined above, should be subm
 
 To be considered for acceptance, a project must meet the following requirements:
 
-* It must minimally meet the requirements for a project to be listed as a "landscape" project at https://ebpf.io/projects
+* It must minimally meet the requirements for a Landscape Project as follows:
+    * The project must be open source. All source code must be licensed under an open source license.
+      Any documentation must be licensed under an open license.
+    * The project must be using eBPF as its underlying core technology, in other words, a project would
+      lose its purpose if the eBPF parts are removed.
+    * The project must be open to collaboration and have a governance model following open-source best-practices.
 * A representative of the project must present an overview at a meeting of the BSC
 * Its purpose must encourage/foster the deployment and use of eBPF in the industry, not merely allow use
   of eBPF as an option
