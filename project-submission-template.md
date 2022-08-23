@@ -24,7 +24,7 @@
 2.3. Existing financial sponsorship, if any.
 
 2.4. Was the project previously accepted by any other consortium or foundation?
-     If so, does the project now accept the eBPF Foundation as its primary governance
+     If so, does the project now accept the eBPF Foundation as its primary support
      body?
 
 2.5. Trademark status, if any.
