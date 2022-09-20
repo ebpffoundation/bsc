@@ -16,6 +16,579 @@ something was not correctly represented from the meeting. The BSC chair
 will then finalize and notify the GB chair about it. Silent deadline is
 one week after the BSC meeting took place.
 
+## Meeting #19 - 2022-08-24
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **Daniel Borkmann**
+- **Participants:**
+  - **Alexei Starovoitov**
+  - **Dave Thaler**
+  - **Brendan Gregg**
+  - **KP Singh**
+  - **Joe Stringer**
+- **AGENDA:**
+  - Misc bits:
+    - GB sum up relevant to BSC [Dave]
+
+      - Lisa now voted as vice chair
+      - Budget discussion
+
+        - Marketing + BSC
+        - GB + BSC
+          - Unclear whether budget split or common
+      - Project adoption process for GB vote
+        - Small change from Scott, ratified
+          - We can now start getting projects in such as iovisor , eBPF for Windows
+        - Example bcc
+          - Reaching out to maintainers
+          - Given already under iovisor (LF), logos etc already donated
+          - Instructions on what to do: [bsc/project-progression-policy.md at master · ebpffoundation/bsc (github.com)](https://github.com/ebpffoundation/bsc/blob/master/project-progression-policy.md)
+          - Fill out template, send to BSC, vote, good to migrate
+
+            - Submission template (as linked from instructions above): [https://github.com/ebpffoundation/bsc/blob/master/project-submission-template.md](https://github.com/ebpffoundation/bsc/blob/master/project-submission-template.md)
+          - Charter going into project's repo
+            - Charter template (as linked from instructions above): [https://github.com/ebpffoundation/bsc/blob/master/Technical%20Charter%20(custom%2Bdata)%20--%20LF%20Projects%2C%20LLC%204-10-2019%20FINAL.docx](https://github.com/ebpffoundation/bsc/blob/master/Technical%20Charter%20(custom%2Bdata)%20--%20LF%20Projects%2C%20LLC%204-10-2019%20FINAL.docx)
+          - [Governance - IO Visor Project](https://www.iovisor.org/about/governance)
+    - Sponsoring updates [Daniel]
+      - LPC 2022 (10k live stream sponsor -\> [done & listed](https://lpc.events/))
+      - eBPF day 2022 (done, foundation is listed as livestream sponsor at [Cloud Native eBPF Day North America | Linux Foundation Events](https://events.linuxfoundation.org/cloud-native-ebpf-day-north-america/), 7.5k)
+  - Review goals and ongoing efforts from BSC side [all]
+    - [BPF guidelines](https://tinyurl.com/bpfguidelines2022) doc
+      - Brendan to finish up reviewing the doc, then bring it to BSC for subsequent review.
+        - Also working on BPF debugging guidelines, which could be a separate doc or included in above
+    - [BPF roadmap](https://tinyurl.com/bpfroadmap2022) doc
+      - KP: needs top
+      - Use next meeting to go over the doc in detail
+      - Goals also around presenting e.g. at LPC / elsewhere
+
+- Shared / honest roadmap across companies to publish.
+
+- xyz handled by company abc
+- Adding priorities, difficulties
+
+  - Example priority queue, scheduler.. 3 implementations each
+  - Don't want important building blocks "owned" by startups and not widely available as OSS
+- Other points not assigned so we can find interested folks in community
+- Platform specific roadmap vs cross-platform roadmap structure
+- Slidedeck & we add own agenda e.g. related to companies
+
+- BPF standardization effort
+- BPF ecosystem report (collab with marketing team)
+- Technical Projects:
+
+  - eBPF for Windows
+  - tbd: iovisor migration
+- BPF community events
+  - 4 recurring ongoing conferences for BPF
+
+    - LPC, LSF/MM/BPF, eBPF day, eBPF summit
+  - Sponsoring recommendations to GB
+    - Currently above 4 approved
+    - More tbd
+  - Event wishlist for next year:
+    - An eBPF track/day at [https://indiafoss.net/](https://indiafoss.net/)
+    - Potentially eBPF track for FOSDEM
+    - LinuxCon Japan
+      - [Open Source Summit Japan | Linux Foundation Events](https://events.linuxfoundation.org/open-source-summit-japan/)
+    - KubeConAsia (eBPF day?)
+    - Target crowd:
+      - User-focussed people, less developer focussed
+- Communication around BPF
+  - "BPF is unsafe"
+    - Analysis around BPF bugs/exploits from past CVEs and relation around distributions to clear off FUD
+      - [Example](https://bugs.chromium.org/p/chromium/issues/detail?id=1320051): ChromsOS bug where they disabled lockdown and attacker used bpf\_write\_user helper
+      - Best practices document around reasonable sec posture
+      - BPF guidelines
+    - Doc around security use cases that can be solved ("BPF is great for sec" writeup)
+    - Post on ebpf.foundation website? User story
+    - AI starting Google doc
+  - "limited because not Turing complete"
+    - Examples vs. service mesh [[0]](https://www.youtube.com/watch?v=heDVglDRDNw)[[1]](https://www.tetrate.io/blog/ebpf-and-sidecars-getting-the-most-performance-and-resiliency-out-of-the-service-mesh/), call w/ analysts, vs. WASM [[2]](https://www.infoq.com/news/2022/01/ebpf-wasm-service-mesh/)
+
+- Other items?
+
+  - Deprecation process of iovisor & migration of GH repositories? [Dave/Brendan/others?]
+
+    - Anything to update from LF side?
+    - What concrete steps are needed?
+
+      - Covered above already
+  - [https://github.com/ebpffoundation/bsc/pull/6](https://github.com/ebpffoundation/bsc/pull/6) (project nominations 2022) [Joe]
+    - Stalled on [https://github.com/ebpffoundation/bsc/pull/6#discussion\_r931438187](https://github.com/ebpffoundation/bsc/pull/6#discussion_r931438187) ?
+    - TBD for next week:
+      - Rework PR to update to current list
+      - Nominations
+
+## Meeting #18 - 2022-08-10
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **Brendan Gregg**
+- **Participants:**
+  - **Alexei Starovoitov**
+  - **Dave Thaler**
+  - **KP Singh**
+  - **Lisa Caywood**
+  - **Daniel Borkmann**
+  - **Joe Stringer**
+  - **Andrii Nakryiko**
+- **AGENDA:**
+  - Daniel:
+    - BSC recommendations for sponsorship help for BPF conferences, e.g.
+
+      - eBPF day (co-located w/ KubeCon -\> October this year)
+      - Linux Plumbers conf
+
+        - Foundation could offer LPC passes for people in need
+      - eBPF summit
+      - Have $10k unratified in budget for events. Not enough for KubeCon general sponsorship.
+        - Cloud Native eBPF day "gold" sponsorship is 9k; Dave: why not that? **BSC says yes**.
+      - [https://events.linuxfoundation.org/wp-content/uploads/2022/08/sponsor-cncf-2022-08.10.22.pdf](https://events.linuxfoundation.org/wp-content/uploads/2022/08/sponsor-cncf-2022-08.10.22.pdf)
+      - [https://events.linuxfoundation.org/wp-content/uploads/2022/08/sponsor-plumberscon22-080322.pdf](https://events.linuxfoundation.org/wp-content/uploads/2022/08/sponsor-plumberscon22-080322.pdf) anu
+      - OneSummit (networking conf) has an eBPF submission (Dave).
+      - Priority: ensure LPC and LSF/MM/BPF conf go ahead
+      - [KP]: WIshlist for next year:
+        - An eBPF track/day at [https://indiafoss.net/](https://indiafoss.net/)
+    - ebpf.io now has Communities menu entry for SO, Reddit & Slack
+      - AI: Daniel: update links to add more SO tags
+      - [https://stackoverflow.com/questions/tagged/ebpf](https://stackoverflow.com/questions/tagged/ebpf)
+      - [https://www.reddit.com/r/eBPF/](https://www.reddit.com/r/eBPF/)
+      - Note that ebpf.io is a community site; BSC is making recommendations (Dave)
+      - ebpf.io and ebpf.foundation seems duplicative and confusing (Lisa)
+        - eBPF marketing team should look into this: Lisa, Bill, etc.
+        - What if other sites pop up as eBPF, do we have any influence? (KP) If they use the eBPF logo, and if LF owns it, then yes (Lisa).
+    - Update from Lorenz around SO collectives: tl;dr still too small at this point
+    - Foundation doc around state of eBPF landscape to highlight community growth, production users & their use cases, etc (potentially sth for q1/2023)
+      - E.g., similar to conference flyers
+  - Dave:
+    - [Copy in the requirements for being a Landscape Project by dthaler · Pull Request #9 · ebpffoundation/bsc (github.com)](https://github.com/ebpffoundation/bsc/pull/9) -- **BSC voted yes**
+    - Emails from Sridhar to BSC
+      - [eBPF-BSC] Feedback from LF-Legal on Approved Charter Changes.
+      - [eBPF-BSC] Request to change the BSC Bi-Weekly Meeting times
+      - [eBPF-BSC] Request for Feedback
+        - [LF Networking Launches Open Source Project Anuket (opensourceforu.com)](https://www.opensourceforu.com/2021/01/lf-networking-launches-open-source-project-anuket/)
+      - BSC members not on [eBPF-BSC] mailing list should join (Brendan)
+
+## Meeting #17 - 2022-07-27
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **Andrii Nakryiko**
+- **Participants:**
+  - **KP Singh**
+  - **Daniel Borkmann**
+  - **Dave Thaler**
+  - **Joe Stringer**
+  - **Lisa Caywood**
+  - **Brendan Gregg**
+- **AGENDA:**
+  - Lisa Caywood on Charter changes
+    - [https://github.com/ebpf-io/ebpf.io/pull/172](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Febpf-io%2Febpf.io%2Fpull%2F172&data=05%7C01%7Cdthaler%40microsoft.com%7C84f7267afece4a4e2d9808da693d9018%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637938010396171822%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=dd5%2BuV4SgTd1CnN2wniL8c8U2cmqkyRMu1HVm5tJ1GU%3D&reserved=0)
+
+      - BSC voted YES on April 20
+      - Board voted YES on July 21
+    - [https://github.com/ebpf-io/ebpf.io/pull/176](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Febpf-io%2Febpf.io%2Fpull%2F176&data=05%7C01%7Cdthaler%40microsoft.com%7C84f7267afece4a4e2d9808da693d9018%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637938010396171822%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=2fq16qdBBWgVjSPJvCbP%2FNXDOsD9z4vzfe5nF3vvrcA%3D&reserved=0)
+      - BSC discussed in April and had no objections, just a question about exit process.  No comparable found for a foundation with an exit process, so propose treating that as separate issue
+      - Board voted YES on July 21
+      - Goal: Ratify YES vote (without closing discussion on exit process)
+      - BSC ratified this on July 27th
+    - [https://github.com/ebpf-io/ebpf.io/pull/175](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Febpf-io%2Febpf.io%2Fpull%2F175&data=05%7C01%7Cdthaler%40microsoft.com%7C84f7267afece4a4e2d9808da693d9018%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637938010396171822%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=0PWxVshWXYKDgzDxDEf6NEsZwd1O088ZbS3JhJbvWq0%3D&reserved=0)
+      - Board voted YES on July 21
+      - This is now up for BSC vote to complete the amendment
+      - BSC voted in favor on July 27th
+  - Dave Thaler also merged in
+    - [https://github.com/ebpffoundation/bsc/pull/7](https://github.com/ebpffoundation/bsc/pull/7)
+    - [https://github.com/ebpffoundation/bsc/pull/8](https://github.com/ebpffoundation/bsc/pull/8)
+  - Sridhar's (remaining) board meeting updates?
+    - Budget is in the process of being approved by the board
+    - Marketing Committee is currently, per Sridhar: "We have a Marketing Committee (Lisa Caywood, Daniel Havey and Bill Mulligan) "  additional nominations welcome
+    - Infrastructure cost estimate?
+      - CI/CD currently covered by Meta
+      - Documentation
+      - These are not currently technical projects.
+  - ONE summit submissions for BPF (networking conference in Seattle Nov.)
+    - CFP end of this week.
+    - [ONE Summit | Linux Foundation Events](https://events.linuxfoundation.org/one-summit-north-america/?hss_channel=tw-721094774)
+  - eBPF day co-located at KubeCon (CFP open, too)
+  - Stack Overflow Collectives: in progress, SO has been made aware
+
+## Meeting #16 - 2022-07-13
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **Alexei Starovoitov**
+- **Participants:**
+  - **Lorenz Bauer**
+  - **KP Singh**
+  - **Brendan Gregg**
+  - **Dave Thaler**
+  - **Joe Stringer**
+  - **Andrii Nakryiko**
+  - **Daniel Borkmann**
+- **AGENDA:**
+  - Lisa Caywood will join on July 27th (we need to notify her if meeting is canceled)
+  - Follow up to "foster eBPF community" discussion from last time
+  - BSC re-election nominations
+    - [https://github.com/ebpffoundation/bsc/pull/6](https://github.com/ebpffoundation/bsc/pull/6)
+    - [https://github.com/ebpffoundation/ebpf.foundation/pull/4](https://github.com/ebpffoundation/ebpf.foundation/pull/4)
+    - [https://github.com/ebpf-io/ebpf.io-website/pull/175](https://github.com/ebpf-io/ebpf.io-website/pull/175)
+  - [Dave] ebpf.io vs ebpf.foundation website – done?
+    - Lorenz: governance, what is ebpf, and docs like ISA, not other things on ebpf.foundation. Also Technical Projects once we get that going.
+    - KP: BSC can periodically review project landscape but not be authoritative on the content for it, so ok to keep landscape projects on ebpf.io
+    - Lorenz: ok for ebpf.io to have all ebpf related confs, and foundation only have things that foundation has an official role in
+  - Ebpf summit, cloud native ebpf day, LPC ebpf track, lsf/mm/bpf are pre-authorized to use bee logo
+  - Should we remove projects discussions from High-Pri items above? yes
+  - [Lorenz]: Slack is not viable, messages disappearing and not publicly searchable
+    - Should it be deprecated?
+    - [https://stackoverflow.com/questions/tagged/ebpf+or+bpf](https://stackoverflow.com/questions/tagged/ebpf+or+bpf)
+    - [https://www.reddit.com/r/eBPF/](https://www.reddit.com/r/eBPF/)
+    - [KP] Why not [https://stackoverflow.com/questions/tagged/go?tab=Newest](https://stackoverflow.com/questions/tagged/go?tab=Newest)
+
+      - See also [https://stackoverflow.com/collectives/go](https://stackoverflow.com/collectives/go)
+    - [Andrii] BPF is a lot more things than just the BPF tag
+      - C++, libraries, kernel
+    - [Lorenz]: Figure out what is necessary to get a collective on SO
+    - Requirements mentioned: web searchable, threaded, supports Q&A, can subscribe to new Q's or A's, not be specific to a single repo, not be specific to a single programming language (like go)
+      - Non-requirement (but maybe nice to have): free
+    - What to do next?
+      - We need a collective: [https://stackoverflow.com/collectives](https://stackoverflow.com/collectives)
+
+        - Tags like ebpf, bpf, xdp-bpf, bcc-bpf, libbpf, bpftrace, bpftool, etc
+      - Slack archive? Steering to people to SO instead.
+        - [http://bash.org/?244321](http://bash.org/?244321)
+
+## Meeting #15 - 2022-06-01
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **Lorenz Bauer**
+- **Participants:**
+  - **KP Singhstack**
+  - **Brendan Gregg**
+  - **Dave Thaler**
+  - **Joe Stringer**
+  - **Andrii Nakryiko**
+- **AGENDA:**
+  - Discuss AI since last meeting (5 min)
+    - Alexei is the next rotating chair for
+    - AI Lorenz: ask Thomas about /bsc permissions again
+  - Discussion with LF / Lisa Caywood didn't take place since we didn't communicate the invitation clearly enough, need to reschedule.
+  - Where do we want to foster the eBPF community? (Lorenz Bauer) (10 min)
+    - Current state: knowledge is locked in cilium Slack
+    - We need at least the following from the main community hub:
+
+      - Public archive
+      - Easily searchable
+      - Accessible from countries with strong censorship, e.g. China
+      - Ability to export the data
+      - Ability to moderate the community (assumption: CoC applies)
+      - Accessible from companies, e.g. Meta (?)
+      - Access via web interface, native app for iOS / android?
+      - A way to get notified of new questions (mail?)
+      - Threaded conversations
+      - Social features: mark as answered, upvotes
+      - Good integration with GitHub, other issue trackers
+      - "Neutral ground": primary affiliation should be the foundation so that competitors can use the same community
+      - More?
+    - Options
+      - Github Discussions
+      - Discourse
+      - Slack (default)
+      - Email list
+      - Stack overflow
+
+        - [https://area51.stackexchange.com/](https://area51.stackexchange.com/)
+      - Reddit
+    - Proposal: Lorenz takes an action item to compare available platforms and make a recommendation.
+      - [Question from Daniel] Could we have various options e.g. slack, stack overflow, reddit, email list and link them as "community resources" under ebpf.io? I'd assume there are already subcommunities for all of them, example:
+        - Existing slack w/ ~10k users
+        - [https://stackoverflow.com/questions/tagged/ebpf](https://stackoverflow.com/questions/tagged/ebpf)
+        - [https://www.reddit.com/r/eBPF/](https://www.reddit.com/r/eBPF/)
+        - [https://www.spinics.net/lists/xdp-newbies/](https://www.spinics.net/lists/xdp-newbies/) but we could also create a new list for ebpf itself (& searchable via lore)
+        - Maybe just a matter of "official blessing" to link to them from ebpf.io?
+  - Can we create a separate budget for eBPF related projects that are hard to get done otherwise? (Lorenz / Joe)
+    - Examples
+      - Documenting eBPF map semantics for cross platform compat, eBPF for Windows (Joe Stringer)
+      - Allow Technical Projects to fund individuals for tasks
+    - Prior art
+      - Outreachy ([Outreachy | Internships Supporting Diversity in Tech - Outreachy](https://www.outreachy.org/)) interns paid for work
+      - Hire LF to do XYZ
+  - Discussed election schedule / process PRs from Joe
+    - [https://github.com/ebpffoundation/bsc/pull/5](https://github.com/ebpffoundation/bsc/pull/5) is accepted an merged
+    - [https://github.com/ebpffoundation/bsc/pull/6](https://github.com/ebpffoundation/bsc/pull/6) needs decision re charter changes, coordination with LF
+
+## Meeting #14 - 2022-05-18
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **KP Singh**
+- **Participants:**
+  - **Alexei Starovoitov**
+  - **Brendan Gregg**
+  - **Dave Thaler**
+  - **Joe Stringer**
+  - **Andrii Nakryiko**
+  - **Daniel Borkmann**
+  - **Joe Stringer**
+- **AGENDA:**
+  - Discuss the High priority AIs
+    - Dave: bsc github ACL issues, Dave could add any reviewers, but was able to "@" people in comments.
+    - Strawman project proposal template form discussion (Example: eBPF for Windows)
+
+      - Does every project need to have a charter?
+      - LF: This is a template that can be changed any way that the project wants
+      - KP: The template should explicitly mention that "it's flexible"
+      - Security checklists from OpenSSF
+      - Coverity for OSS: [https://scan.coverity.com/](https://scan.coverity.com/)
+      - Review of the PDF form
+
+        - KP: Does it need to be a delta highlighted
+        - Dave: recommended
+      - Costs
+        - Github CI/CD resources (currently in freebie quota)
+        - Code coverage licenses
+      - Is the process approved? Discuss concerns, vote
+        - Daniel: What happens if a process is not done by a single foundation / company?
+          - Do the contributors have a vote?
+        - Dave: There is a precedent, but not sure how it worked..
+        - There were no changes to the form needed, but took longer as it was the first one. LF now has experience, so should hopefully.
+        - A signatory was needed.
+        - Positive vote for the process
+  - Debrief from LSF/MM/BPF (limited time)
+    - BPF Standardization
+    - Christoph Hellewig indicated that they're willing to contribute.
+  - Daniel: At KubeCon
+    - Lot's of traction about eBPF
+  - Cloud Native eBPF Day youtube playlist: [https://youtube.com/playlist?list=PLj6h78yzYM2PzqjM3DTYjiVZ42wXDp0Qg](https://youtube.com/playlist?list=PLj6h78yzYM2PzqjM3DTYjiVZ42wXDp0Qg)
+
+## Meeting #13 - 2022-04-20
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **Joe Stringer**
+- **Participants:**
+  - **Alexei Starovoitov**
+  - **Brendan Gregg**
+  - **Dave Thaler**
+  - **Joe Stringer**
+  - **Andrii Nakryiko**
+  - **Daniel Borkmann**
+  - **KP Singh**
+  - **Lorenz Bauer**
+- **AGENDA:**
+- (5m) Review action items
+  - Charter amendment
+    - Technical project criteria, current WIP proposal (Dave):
+
+      - Criteria 1: Trademark transfer
+      - Criteria 2: BPF Foundation is primary governance structure
+- (5m) [Charter wording amendment](https://github.com/ebpf-io/ebpf.io/pull/172)
+  - [Approved](https://github.com/ebpf-io/ebpf.io/pull/172#issuecomment-1104419435)
+- (15m) Decide on re-election schedule with appropriate offsets to avoid replacement of the entire committee at once. Needs resolution by Q2 2022. (Governing board ask)
+  - The [charter](https://ebpf.io/charter) has three election cases for the BSC:
+  - 1) Chair, elected from BSC members.  BSC already decided to rotate every two weeks, so this one is done.
+  - 2) eBPF Runtime Representative, from active contributors to the runtime.
+  - 3) Additional Project Representatives, from active contributors to additional important projects
+  - (Dave): Note (4bi) - For continuity at least half of these should stay the same at any point in time
+    - The rest of the categories do not have this constraint
+      -
+  - Process:
+    - Need the outline of how to do the election
+      - Project nomination?
+      - AI(Joe): Figure out the projects
+    - Need to figure out how to stagger (who to re-elect at 1y mark)
+      - Volunteers from BSC
+    - Need to set a date (proposal: October 2022)
+  - Original list from August 2021:
+    - Two representatives (the "Kernel Representatives") from the group of eBPF Linux kernel maintainers
+    - - Daniel Borkmann, Isovalent, eBPF Maintainer
+    - - Alexei Starovoitov, Facebook, eBPF Maintainer
+        -
+    - One representative (each a "eBPF Runtime Representative") for each additional open-source eBPF runtime implementation.
+    - - Dave Thaler, Microsoft, eBPF Runtime for Windows
+        -
+    - Up to two representatives ("Additional Project Representatives") from additional open source projects that are important to the eBPF ecosystem, as determined by the BSC.
+    - - Lorenz Bauer, Cloudflare, eBPF Go library & long-time eBPF contributor
+    - - KP Singh, Google, eBPF LSM
+        -
+    - Up to three representatives with maintainer status ("Maintainer
+    - Representatives") of major eBPF Foundation projects as approved by the BSC.
+    - - Brendan Gregg, Netflix, bcc/bpftrace
+    - - Andrii Nakryiko, Facebook, Katran
+    - - Joe Stringer, Isovalent, Cilium Maintainer
+  - Timeline:
+    - Members elected: October
+    - Election: Mid sept at latest
+    - Projects to elect members from: August
+- (30m) Discuss [eBPF Technical Roadmap](https://docs.google.com/document/d/1-zyHDLg5NTlKX6oPgyupvJRIn5pK40-x8-hoE3xPQu4/edit) proposals
+  - Expanded the list, included a few additional ideas here
+  - More may come up during LSF/MM/BPF
+- (5m) Next meeting: 18 May (Avoid overlap with LSF/MM/BPF)
+
+## Meeting #12 - 2022-04-06
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **Alexei Starovoitov**
+- **Participants:**
+  - **Brendan Gregg**
+  - **Andrii Nakryiko**
+  - **Dave Thaler**
+  - **Daniel Borkmann**
+- **AGENDA:**
+- ebpf.io / bpf.io - AI Daniel: Move domains to a BSC owned entity so the domains stay in ownership of the eBPF community represented by BSC. Solely BSC is admin & owner. BSC is good with this.
+- Discussion / update around iovisor transferral
+- AI all: Review and extend [KP's doc](https://docs.google.com/document/d/1-zyHDLg5NTlKX6oPgyupvJRIn5pK40-x8-hoE3xPQu4/edit) for next time with roadmap items
+  - For next meeting we'll go over them and discuss
+- AI Daniel: Create a [brand@ebpf.io](mailto:brand@ebpf.io) (list with: 1 legal, 1 marketing person on it)
+  - Check with Bill on status of brand guidelines so we can push PR further
+- BSC agreed to use eBee logo for cloud native eBPF day as well as LSF/MM/BPF conference
+
+## Meeting #11 - 2022-03-23
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **Dave Thaler**
+- **Participants:**
+  - **Brendan Gregg**
+  - **Andrii Nakryiko**
+  - **Dave Thaler**
+  - **Alexei Starovoitov**
+  - **Joe Stringer**
+  - **KP Singh**
+- **AGENDA:**
+- Review open AI's
+- Takeaways from Governing Board meeting
+  - ebpf.io vs ebpf.foundation website
+  - Fixing posted charter
+  - Proposal to create a marketing committee to manage website, event logistics, press releases (subcommittee tasked with creating actual proposal: Thomas, Lisa, Stephen, Dave)
+  - Open question about slack channel vs Cilium
+  - Investigating level of LF PM support, leaning towards "Extended Support (level 3)"
+- [Dave] Plan for next open meeting, should we have another discussion of signed programs at an earlier time slot?
+  - 9am Pacific Thursdays is bpf office hours, could use that slot for open meetings
+  - Currently under "kernel" section but could be moved up on project page to be more general.   Keep rule to cancel if no agenda proposal.
+  - **AI (KP):** investigate creating an app script
+  - **AI (Dave):** PR to update socializing wider than "kernel"
+  - KP discussing signing programs with various folks
+  - **AI (KP):** pick a week for signed program discussion
+- [Alexei] Times for future BSC meetings
+  - Lorenz missed so should we use a different time that is more convenient for Brendan?  Back to 1pm Pacific / 7am Australia / 10pm Switz (April 27th)... why do we have a 3 week gap?
+  - **AI (Daniel):** update invite, meet April 6 and 20 (etc) at 1pm Pacific, with 1 hr duration [DONE]
+- [Dave] [Charter](https://ebpf.io/charter/) says that by default "One representative of any Member may observe meetings of the BSC" but the BSC can change that at any time.
+  - Discussion: Don't change, don't proactively invite, but allow requests if they come
+- [Dave] Review of updated [https://github.com/ebpf-io/bsc/pull/1](https://github.com/ebpf-io/bsc/pull/1)
+  - Proposed sequencing:
+    - Review proposal
+    - Get ebpf for windows example case
+    - Approve proposal
+    - Go through acceptance process for ebpf for windows
+- Discussion of project scoping
+  - Dave's high level strawman from last meeting: a project must be able to argue how it _encourages/fosters the deployment and use of eBPF_, not just (e.g.) allow using eBPF as an option
+  - **AI (Dave):** get ebpf for windows to fill out forms
+  - **AI (All):** Review the PR
+  - CLA/DCO required?
+  - IP declarations?
+    - Is there potential for intellectual property or patent problems to arise from participation in eBPF foundation?
+    - Legal questions, leave to legal review of project submission, not BSC scope.
+  - All BSC to review PR to approve this process
+    - Hold back on approval until first project works through the process.
+    - eBPF for Windows can be guinea pig
+  - **AI (KP):** create a skeleton doc for categories/roadmap of projects
+
+## Meeting #10 - 2022-03-09
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **Daniel Borkmann**
+- **Participants:**
+  - **Andrii**
+  - **Alexei**
+  - **Dave**
+  - **Daniel**
+  - **Joe**
+  - **Brendan**
+- AI: Ask from LF
+  - Offer an open BSC meeting slot. For example once a month.
+  - Cadence could be once every 4 weeks
+  - How to propose items for discussion
+    - For example, BPF office hours
+  - Invitation from BSC side
+  - AI: doc for topics & contact points to BPF foundation website
+- [Dave] How to best track AI's – follow-up to review above list w/ current state
+- [Dave] eBPF Foundation projects (as opposed to "landscape") - follow up from 2021-10-13 meeting
+  - Review of [https://github.com/ebpf-io/bsc/pull/1](https://github.com/ebpf-io/bsc/pull/1)
+  - General feedback to be lightweight (minimum viable governance), maybe just have one stage for now, not distinguish between levels
+  - KP AI: technical project can ask BSC for an invite
+  - KP how do we define an overall mission for technical steering committee
+    - BSC meeting to chart out goals
+  - E.g. encourage deployment of OSS eBPF as technology
+  - Technical vs landscape projects
+- BPF + integrity subsystem
+  - [https://lore.kernel.org/bpf/20220302111404.193900-1-roberto.sassu@huawei.com/](https://lore.kernel.org/bpf/20220302111404.193900-1-roberto.sassu@huawei.com/)
+  - [https://docs.google.com/document/d/1tcoIAZhdBMHg5usuMopMJczYqLgEMiifyHwoXPz4Cp8/edit](https://docs.google.com/document/d/1tcoIAZhdBMHg5usuMopMJczYqLgEMiifyHwoXPz4Cp8/edit)
+  - Potentially we meet with Mimi at LSF/MM/BPF to discuss next steps
+
+## Meeting #9 - 2022-02-23
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **Brendan Gregg**
+- **Participants:**
+  - **Andrii Nakryiko**
+  - **Brendan Gregg**
+  - **Dave Thaler**
+  - **KP Singh**
+  - **Joe Stringer**
+  - **Alexei Starovoitov**
+  - [**Lorenz Bauer**](mailto:lmb@cloudflare.com)
+- LSFMMBPF
+  - Beautiful Palm Springs, CA
+  - Do your proposal
+- Lorenz will have a new job
+  - Discuss BSC when he starts; Lorenz will give up spot if that makes sense
+  - Will keep working on BPF
+- How to track pending AIs [Dave]
+  - Could put them at the top of this doc, or annotate this doc
+  - Could add them to github repo
+  - We will add tick boxes to top of document
+  - KP will figure out how best to do this and tell us
+- eBPF foundation projects [Dave]
+  - Examples from other projects of governance
+  - Example projects:
+    - eBPF for Windows
+    - Prevail verifier
+    - L3AF
+  - Is the goal to acquire projects for eBPF (and sponsorship money)? [Joe]
+  - Can a project be short-lived? (e.g., make an API improvement) [Joe]
+    - Yes, examples with other projects do this
+  - Can be academic projects, corporate projects [Dave]
+  - We should read through the three options above and have a meaningful discussion [Alexei]
+    - LF CCC [governance/project-progression-policy.md at main · confidential-computing/governance (github.com)](https://github.com/confidential-computing/governance/blob/main/project-progression-policy.md)
+    - LF Networking [LFN Project Lifecycle (Updated) - LF Networking - LF Networking Confluence](https://wiki.lfnetworking.org/pages/viewpage.action?pageId=62490363)
+    - CNCF process [toc/project\_proposals.adoc at main · cncf/toc (github.com)](https://github.com/cncf/toc/blob/main/process/project_proposals.adoc) benefits [https://www.cncf.io/services-for-projects/](https://www.cncf.io/services-for-projects/)
+  - eBPF foundation charter is to have projects! [Dave]
+  - Note that LF CCC has a statement to say that projects have to promote the use of eBPF [Dave]
+  - Can we include old projects like bpftrace? [Brendan]
+    - After selecting governance, we then can look at existing/future projects
+  - Getting funding for CI would be a benefit [Lorenz]
+  - LF tooling: [https://lfx.linuxfoundation.org/](https://lfx.linuxfoundation.org/)
+  - Can propose projects that further eBPF that haven't been started yet; we lay out technical direction of where eBPF should go  [KP]
+  - To endorse a project, we would need to believe in its technical vision and how it benefits the eBPF ecosystem. [Alexei]
+    - Be LF-like: if it promotes eBPF, it's good
+  - CCC Project Contribution Agreement: [https://lists.confidentialcomputing.io/g/main/files/TAC/Project%20Submissions/LF%20Projects%20--%20Form%20of%20Trademark%20and%20Account%20Assignment.docx](https://lists.confidentialcomputing.io/g/main/files/TAC/Project%20Submissions/LF%20Projects%20--%20Form%20of%20Trademark%20and%20Account%20Assignment.docx)
+
 ## Meeting \#8 - 2022-02-09
 
 -   **Duration:**
