@@ -16,6 +16,404 @@ something was not correctly represented from the meeting. The BSC chair
 will then finalize and notify the GB chair about it. Silent deadline is
 one week after the BSC meeting took place.
 
+## Meeting #27 - 2023-01-11
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **Brendan Gregg**
+- **Participants:**
+  - **Brendan Gregg**
+  - **Andrii Nakryiko**
+  - **Dave Thaler**
+  - **Alexei Starovoitov**
+  - **Daniel Borkmann**
+  - **Joe Stringer**
+  - **KP Singh**
+- **AGENDA**
+  - [IETF 116](https://www.ietf.org/how/meetings/116/) ([https://datatracker.ietf.org/doc/bofreq-thaler-bpf-ebpf/](https://datatracker.ietf.org/doc/bofreq-thaler-bpf-ebpf/))
+    - Yokohama Japan, March 25-31. Should be cherry blossom season: take your camera!
+    - With regards to travel, do we know which day the BOF might take place?
+      - [Dave] Per [IETF 116: Important Dates](https://datatracker.ietf.org/meeting/116/important-dates/), the IESG decision whether to grant a BOF will be by Feb 17th.  A draft agenda answering the "which day" question will be available by Feb 24th, and the agenda will be final by March 3.
+    - Process for Visa invitations: [IETF | Visa Application Process](https://www.ietf.org/how/meetings/116/116-visa-application-process/)
+    - Any other plans @ IETF outside BOF?
+      - [Dave] Likely will be used in various [hackathon](https://wiki.ietf.org/en/meeting/116/hackathon) projects
+  - Misc bits [Daniel]:
+    - LSF/MM/BPF CFP is out ([https://lore.kernel.org/bpf/Y7hDVliKq+PzY1yY@localhost.localdomain/](https://lore.kernel.org/bpf/Y7hDVliKq+PzY1yY@localhost.localdomain/))
+      - Vancouver, May 8-10
+    - FOSDEM kernel devroom schedule ([https://fosdem.org/2023/schedule/track/kernel/](https://fosdem.org/2023/schedule/track/kernel/))
+      - Brussels Feb 4,5
+    - [BPF Conference spreadsheet](https://docs.google.com/spreadsheets/d/1aLBiGI2-xRQ6AtWwiFK59brjt52oQVeRt5cgqf14Yx4/edit#gid=1036541245&fvid=143074800)
+    - Adding events to the foundation website for upcoming conferences
+      - Cloud native security con [bpf talks](https://events.linuxfoundation.org/cloudnativesecuritycon-north-america/program/schedule/) (search bpf)
+      - AI(Daniel): Bill should reach out to Sridhar to arrange
+  - SREcon, Singapore [Brendan]
+    - KP may know people; Alexei
+  - BPF naming: BPF as a superset
+    - [https://ebpf.io/what-is-ebpf#what-do-ebpf-and-bpf-stand-for](https://ebpf.io/what-is-ebpf#what-do-ebpf-and-bpf-stand-for)
+  - BPF on systemd; can systemd manage lifecycle of BPF everything? [Alexei]
+    - What about people using k8 to manage everything? [Joe]
+    - Currently L3AFd does try to do this for BPF [Dave]; L3AFd is cross-platform
+      - Walmart is using it now.
+      - Discussion on how L3AFd works - API-based configuration, etc. Give it a URL + commands to execute the user+bpf kernel progs
+  - Intel joining eBPF foundation: waiting on LF
+  - Fedora frame pointers approved and planned for a release
+    - Brendan to do blog post on stack walking and BPF
+    - (lookup sframe stuff)
+    - [https://fosdem.org/2023/schedule/event/walking\_stack\_without\_frame\_pointers/](https://fosdem.org/2023/schedule/event/walking_stack_without_frame_pointers/)
+  - Continue [BPF Technical Roadmap - Google Slides](https://docs.google.com/presentation/d/1bsGgk_bxuhHxCxc_UXxEa62R-prAX0eNpwkT19_OeFY/edit#slide=id.g14930a8517c_0_0): Windows portion [Dave]
+
+## Meeting #26 - 2022-12-14
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **Andrii Nakryiko**
+- **Participants:**
+  - **Andrii Nakryiko**
+  - **Brendan Gregg**
+  - **Daniel Borkmann**
+  - **Dave Thaler**
+  - **Joe Stringer**
+  - **Lorenz Bauer**
+  - **KP Singh**
+- **AGENDA**
+  - IOVisor follow ups
+    - Joe will ping Kenny, no updates otherwise
+    - We need IOVisor projects to better align with BSC charter
+  - Faster uprobes (Brendan)
+    - The goal is to avoid mode switch overhead caused by normal uprobes (uprobes are many times slower than kprobes to trigger)
+      - Andrii: a good chunk of overhead is when there is no NOP that the uprobe code can patch out. If NOP is present ~3x faster.
+    - There are new "zero instrumentation APM" companies in the market
+      - Based on uprobes, slows down application
+      - Slower than Open Telemetry
+      - Dave: Should we invite OTel people to BSC meetings?
+      - Brendan: OTel already puts hooks into code, could use those for USDT
+        - [https://sched.co/1Auyh](https://sched.co/1Auyh)
+        - [https://www.youtube.com/watch?v=0D4GTdv7QQA](https://www.youtube.com/watch?v=0D4GTdv7QQA)
+      - A lot of the industry outside of SF doesn't have the ability to change source, so uprobe based instrumentation is the only things that works
+      - Brendan: imagine a "OTel using eBPF project", possible to do and would get a lot of attention
+    - This needs user-space BPF engine, and somehow figure out user-kernel BPF interactions
+    - KP: teach kernel to JIT BPF program into privileged user-space memory page within process' memory space. Fall back to syscall-like interface if BPF program needs to interact with kernel state (BPF maps, BPF helpers, etc)
+    - Is this a possible outreachy / intern project?
+      - See [Outreachy | Mentor FOSS interns - Outreachy](https://www.outreachy.org/mentor/) and [Mentor FAQ - Outreachy](https://www.outreachy.org/mentor/mentor-faq/) for mentorship requirements
+      - Might have to extend BPF foundation policy to allow this
+  - Andrii: Fedora has rejected enabling frame pointers, but might get a second shot at this
+    - [https://pagure.io/fesco/issue/2817](https://pagure.io/fesco/issue/2817)
+    - [https://pagure.io/fesco/issue/2917#comment-832331](https://pagure.io/fesco/issue/2917#comment-832331)
+    - Andrii: Maybe we should push Canonical for this as well?
+      - KP: Kees might help
+  - [Dave] BPF vs eBPF terminology
+    - Lots of discussion, but leaning towards using eBPF in eBPF foundation-derived documentation, but mention that BPF is perfectly valid name as well
+    - BPF is often used as a category / broad term, but this means something different to BSD people
+  - [Dave] community topics for meetings (my action item) and Foundation info on the BSC
+    - [https://ebpf.foundation/participate/](https://ebpf.foundation/participate/) - moved to next meeting
+  - [Dave] BPF technical roadmap (Windows portion) - moved to next meeting
+  - Next meeting date?
+    - 2023-01-11
+
+## Meeting #25 - 2022-11-16
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **Joe Stringer**
+- **Participants:**
+  - **Joe Stringer**
+  - **Alexei Starovoitov**
+  - **Dave Thaler**
+  - **Daniel Borkmann**
+  - **KP Singh**
+  - **Lisa Caywood**
+  - **Mykola Lysenko**
+  - **Brendan Gregg**
+  - [**Andrii Nakryiko**](mailto:andrii.nakryiko@gmail.com)
+- **AGENDA:**
+  - IOVisor project invitations
+    - [Joining the eBPF Foundation - IOVisor budget steering committee](https://docs.google.com/document/d/1CgVATbTGbvnPebZ9YD39qVjaVGN9UixGMKZIq-Ltw0A/edit?usp=sharing)
+    - [Joining the eBPF Foundation - Projects](https://docs.google.com/document/d/1Xhfrdlqi0xKcGN5Oz_1ReiKoGnlCh6IdvbK9tPhLFy0/edit?usp=sharing)
+    - Next steps:
+      - Get OK from BSC on templates
+      - For the IOVisor budget steering board, reach out to Kenny Paul to initiate the reach-out
+      - BCC, BPFTrace, Kubectl trace and Ply, uBPF:
+        - At this point, the effort to include these projects individually in the eBPF foundation does not outweigh the process.
+        - It seems like a more promising path to just follow up directly with the IOVisor budget steering board and follow up on alignment/merging on bulk for all projects.
+    - AI (Joe): Follow up with Kenny for the first template. Hold back on reaching out to individual projects, pending progress directly with the IOVisor budget steering board.
+  - IETF discussion
+    - KP, Alexei, Dave attended the side-meeting at IETF last week
+    - Dave summary:
+      - Well attended, a recording was made and there are two sets of notes. Dave to follow up on sharing these with BSC.
+      - No interest in non-IETF RFC
+      - ISO not discounted
+      - Several interested in standardizing in IETF
+      - IETF hackathon separately also had various eBPF hack projects
+        - [IETF-Hackathon/ietf115-project-presentations: Project results presentations at end of Hackathon (github.com)](https://github.com/IETF-Hackathon/ietf115-project-presentations/) has all the presentations, DT tto figure out which ones had eBPF in them
+        - Here's one: [ietf115-project-presentations/hackathon-presentation-pdmeh.pdf at main · IETF-Hackathon/ietf115-project-presentations (github.com)](https://github.com/IETF-Hackathon/ietf115-project-presentations/blob/main/hackathon-presentation-pdmeh.pdf)
+        - Here's another: [https://github.com/IETF-Hackathon/ietf115-project-presentations/blob/main/IETF%20115%20Hackathon-BMWG-Container%20Benchmarking.pdf](https://github.com/IETF-Hackathon/ietf115-project-presentations/blob/main/IETF%20115%20Hackathon-BMWG-Container%20Benchmarking.pdf)
+        - SRv6 hackathon presentation does NOT mention eBPF so don't know whether they used eBPF or not: [ietf115-project-presentations/ietf-115-hackathon-srv6-dataplane-visibility.pdf at main · IETF-Hackathon/ietf115-project-presentations (github.com)](https://github.com/IETF-Hackathon/ietf115-project-presentations/blob/main/ietf-115-hackathon-srv6-dataplane-visibility.pdf)
+      - From hallway immediately afterwards, suggestion / request to create a bpf@ietf.org email address which also forwards to [bpf@vger.kernel.org](mailto:bpf@vger.kernel.org) list
+      - Range of proposals, ISA is the most concrete. Not enough time to discuss standardization of other aspects (map types etc.)
+    - Q: How hardware industry intends to use eBPF.
+      - KP: With NVME there are papers with concrete proposals
+      - Potential benefit of ISA standardization outside kernel to expand usage, in domains where we may not have previously considered
+    - Alexei: Suggestion - Begin following the IETF procedure but using rST
+      - Dave: By the time something becomes an RFC, it is typically defined in XML. That would likely be the target format preferred by IETF. We could use a rst2xml converter to get it in the right format.
+    - Mykola: How would we version RFCs over time (particularly after published)? Consider that the ISA may be further expanded.
+      - Dave: Couple of options. Brand new RFC, or new extension RFCs. In the initial RFC, specify that the set of opcodes may be expanded in future RFCs. If there are no breaking changes, just create a new "delta" document for the new bits.
+      - Can also opt to reserve some portion of the opcodes to avoid standardization for those ranges. Those reserved set are commonly also managed by IANA for allocation in other RFCs.
+      - Errata is also possible for minor amendments.
+    - Alexei: We still have the option to choose, but given the range of use cases brought up in the IETF session it seems like it is worth seriously considering
+      - Routers, edge, wifi, SRv6, NVME
+    - Dave:
+      - Possible next steps: New mailing list @ IETF
+      - Arrange a BoF at the next IETF (March, Yokohama JP)
+        - [IETF | IETF 116](https://www.ietf.org/how/meetings/116/)
+      - Based on activity on the ML, we could get a slot for a BoF and/or WG. BoF is typically a first step.
+      - AI (Dave): Reach out to IETF folks to set up ML
+      - AI (Dave): get on the proposed BOF list for IETF 116
+        - [BOF Requests (ietf.org)](https://datatracker.ietf.org/doc/bof-requests)
+  - KP:
+    - [https://www.usenix.org/conference/osdi22/presentation/zhong](https://www.usenix.org/conference/osdi22/presentation/zhong)
+    - Alexei: Not NVMe related, but like XDP for storage
+      - Acceleration of B-Tree walks etc.
+    - Christoph's use case:
+      - Programmable RAID / load balancing
+  - KP:
+    - [BPF Technical Roadmap](https://docs.google.com/document/d/1IbYCopXI_pyhlAQAwMDjalF1cc9k2NOfFuMzvNJItLQ/edit#heading=h.s9q5yjnxn0e5)
+      - Can everyone check they have access to this?
+
+## Meeting #24 - 2022-11-02
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **Alexei Starovoitov**
+- **Participants:**
+  - **Andrii Nakriyko**
+  - **Daniel Borkmann**
+  - **Joe Stringer**
+  - **Lisa Caywood**
+- **AGENDA:**
+  - **Conference sheet from Lisa:**
+    - [https://docs.google.com/spreadsheets/d/1aLBiGI2-xRQ6AtWwiFK59brjt52oQVeRt5cgqf14Yx4/edit#gid=0](https://docs.google.com/spreadsheets/d/1aLBiGI2-xRQ6AtWwiFK59brjt52oQVeRt5cgqf14Yx4/edit#gid=0)
+    - Rough estimate around sponsorship opportunities
+    - Waiting on list from Brendan to further complete conferences
+  - [https://lists.ebpf.foundation/g/bsc/topics](https://lists.ebpf.foundation/g/bsc/topics)
+
+## Meeting #23 - 2022-10-19
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **Lorenz Bauer**
+- **Participants:**
+  - **Alexei Starovoitov**
+  - **Andrii Nakriyiko**
+  - **Dave Thaler**
+  - **Daniel Borkmann**
+  - **Joe Stringer**
+  - **Brendan Gregg**
+  - **Lisa Caywood**
+  - **KP Singh**
+- **AGENDA:**
+  - Review Action Items
+    - Alexei discussion with Christoph Hellwig
+      - Hardware vendors (?) would like standardization
+      - Amazon, Intel proposal not viable
+      - No IETF is not a deal breaker, but preference from Christoph
+    - eBPF/IETF discussion call scheduled for [8am Pacific 10/21](https://www.worldtimebuddy.com/?qm=1&lid=8,2643743,2643743&h=8&date=2022-10-21&sln=8-9&hf=0)†
+      - Alexei and Dave will attend
+  - [Joe, Dave] Report on discussion with Kenny Paul about iovisor foundation
+    - [Joining the eBPF Foundation - Google Docs](https://docs.google.com/document/d/1CgVATbTGbvnPebZ9YD39qVjaVGN9UixGMKZIq-Ltw0A/edit)
+    - Dave: merge iovisor with eBPF foundation might take longer, offer individual projects to migrate
+      - Iovisor has money they can't spend
+      - Lisa: bureaucratic process, doable but requires timely action
+        - Not much interaction between iovisor technical board and LF
+      - Joe: has a list of the current technical board members of iovisor.
+        - Alexei Starovoitov (Meta)
+        - Fulvio Risso (Politecnico di Torino)
+        - Yunsong Lu (Huawei)
+        - cf. Fri, Oct 7 mail to BSC from Joe with notes from discussion with LF
+    - Migrating a project that is already under LF just requires an application to eBPF foundation
+    - Lisa: how would we migrate projects? How many can we migrate?
+      - Transfer of ownership insider LF
+      - We might have to budget funds for this, maybe we can use iovisor funds?
+  - [Lorenz] What's happening to the eBPF trademark?
+    - Application is happening
+  - [Dave] Use of eBPF logo for landscape projects
+    - Bill Mulligan [asks](https://github.com/ebpf-io/ebpf.io-website/pull/278#issuecomment-1269518791): "Since there is currently no logo, would you mind adding just the eBPF one for now?"
+  - [Dave] ebpf-docs repo created under github ebpffoundation org.  Booked Oct. 27 office hours slot.
+  - [Daniel] Applied for FOSDEM'23 for eBPF [devroom](https://submission.fosdem.org/submission/devroom) track (Quentin, Florent, Michal, Daniel)
+    - Single day, should know whether it's accepted by end of October
+    - Maybe use foundation resources to publicize the CFP?
+    - Lisa: started a list of foundation relevant events
+      - Funnel this back into website / social media
+    - Brendan: has a long list, going to filter that down
+
+## Meeting #22 - 2022-10-05
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **KP Singh**
+- **Participants:**
+  - **Alexei Starovoitov**
+  - **Brendan Gregg**
+  - **Daniel Borkmann**
+  - **Dave Thaler**
+  - [**Joe Stringer**](mailto:joe@isovalent.com)
+  - **Andrii Nakryiko**
+- **AGENDA:**
+  - Standardization
+    - Can we standardize eBPF in [IETF](https://www.ietf.org/)?
+      - Lars, chair of IETF, was open to it.
+      - Lars is creating a conference call to discuss?
+    - Would eBPF people participate in IETF?
+    - Is it in scope for IETF?
+    - KP: What are the benefits of standardization in IETF? [Not a lawyer disclaimers from all folks]:
+      - Not very clear yet.
+      - Dave in IETF for a long time.
+      - Alexei: Had attended one IETF meeting
+        - A lot of discussion about copyright, licensing, trademarks etc.
+        - BPF ISA is not copy-righteable
+      - IETF does not require IP assignment
+        - But it requires disclosure
+      - By submitting one, grants permission to IETF to create derivative works.
+        - IETF can, legally, change the standard without eBPF foundation consensus.
+        - Google created some RFC, IETF created a derivative.
+      - Ratification to ISO for standardization
+    - Alexei: Linux foundation has some way to make sub foundations to make standards
+      - LF won't help us
+      - Check with Christoph, if an RFC number is sufficient, this is lighter than becoming an official IETF standard / document.
+    - Daniel: What does it mean to have a RFC number?
+    - Brendan: What about POSIX?
+      - Dave has been involved with POSIX
+      - POSIX is published by 3 ISO, IEEE, the Open Group.
+        - 3 need to ratify a standard
+        - Likely a time intensive process.
+        - See [Austin Group - Wikipedia](https://en.wikipedia.org/wiki/Austin_Group) for more details on how the 3 orgs together make up the "Austin Group" for POSIX
+        - In ISO, the C group is dormant and got merged into the C++ group at present, where Dave lurks on the mailing list
+        - Mailing list is not just open to any subscriber, you have to get an invite
+    - Alexei: Where is C++ standard happening?
+      - ISO
+      - List is locked
+    - Alexei: Where is Rust doing its standard work?
+      - Andrii: There does not appear to be a standard
+    - Andrii:
+      - Java standards: [https://docs.oracle.com/javase/specs/](https://docs.oracle.com/javase/specs/) Oracle publishes them itself
+    - NVME: [NVM Express – scalable, efficient, and industry standard](https://nvmexpress.org/), specs are free/public apparently
+    - Alexei: A ratification helps hardware vendors have more comfort implementing w.r.t stability, legal etc.
+      - Lisa: We do have access to LF legal for a consultation and they can guide us.
+    - Check with Christoph about the requirements of the nvme standard to take [] reference for eBPF (eBPF doc, independent-steam RFC, IETF RFC, ISO), take least effort to unblock Christoph.
+      - Alexei to check with Christoph in person next week.
+  - Dave: Feedback on recruit project contributions process
+    - uBPF maintainers under iovisor to submit their project
+    - uBPF is writing a compliance test suite based on the ISA doc, possibly, in a way to make it generically pluggable.
+      - PR in the uBPF repo.
+    - This is from Quentin: [https://github.com/ebpffoundation/ebpf-docs/tree/main/tools/ebpf-check](https://github.com/ebpffoundation/ebpf-docs/tree/main/tools/ebpf-check), compliance check for an ELF file.
+    - Consensus: Encourage to contribute to foundation
+  - Dave (with help from others) is doing a lot of standard cleanup work.
+    - Alexei: needs reviews from other people.
+  - Donald proposed help with documents:
+    - Propose inviting Donald to BSC meeting, OH is a possibility, not works for all BSC folks though.
+  - Daniel: BPF track at FOSDEM conference
+    - [FOSDEM 2023 - Home](https://fosdem.org/2023/)
+    - KP: Possibly also a keynote speaker
+    - Who is the eBPF community manager?
+      - Lisa: Marketing committee. Bill is mostly managing it
+      - Consensus: List of conferences we should be engaged with
+      - Probably a Wiki, your favorite spreadsheet platform
+  - More conferences:
+    - Scale20x
+    - SRE Con
+    - FOSS.in (India)
+    - [Schedule | Linux Foundation Events](https://events.linuxfoundation.org/open-source-summit-europe/program/schedule/) is scheduled for Open Source SUmmit Europe (co-located with LPC) and had ebpf talks, just search for ebpf on that page
+
+## Meeting #21 - 2022-09-21
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **Joe Stringer**
+- **Participants:**
+  - **Alexei Starovoitov**
+  - **Brendan Gregg**
+  - **Daniel Borkmann**
+  - **Dave Thaler**
+  - **KP Singh**
+  - **Andrii Nakryiko**
+- **AGENDA:**
+  - (10m) Documenting prog types and map types
+    - [Issue on ebpf.io issues](https://github.com/ebpf-io/ebpf.io-website/issues/259)
+    - Email from BSC list, [ebpf.io issue](https://github.com/ebpf-io/ebpf.io-website/issues/259)
+    - Let's direct people to submit patches to the upstream kernel tree to improve this documentation
+    - Long-term, cross-platform docs on ebpf.foundation. Dave Thaler is already beginning work in this direction.
+  - (40m) Roadmap
+    - [BPF Technical Roadmap - Google Slides](https://docs.google.com/presentation/d/1bsGgk_bxuhHxCxc_UXxEa62R-prAX0eNpwkT19_OeFY/edit#slide=id.g13ceb4fbe3c_0_0)
+    - Verification
+      - Extension: Observing verifier decisions. Relevant to signing
+    - CI
+      - Discussion around arm64 cross-arch testing. Progress being made.
+      - BSC should engage with s390, ppc64, risc-v, mips maintainers to get missing features like trampolines, atomics etc.
+    - More notes added as comments on the roadmap slides
+    - Continue the rest of the roadmap discussion next meeting
+  - (10m) Election
+    - Were any candidates identified during LPC discussion?
+      - None in particular
+    - Key question: Do we have the BSC makeup that we want?
+      - Other OSes (BSD, Apple, Amazon)
+      - AI(Dave): Reach out to Apple folks
+    - Proposal: Delay election until IOVisor -\> BPF Foundation transition occurs
+      - Who owns next steps here?
+      - AI(Joe): Reach out to Sridhar on template for eligible projects to ask whether they would be interested to join BPF Foundation.
+  - IETF BPF Standardization
+    - May be difficult based on scope of BPF (not a protocol)
+
+## Meeting #20 - 2022-09-07
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **Dave Thaler**
+- **Participants:**
+  - **Alexei Starovoitov**
+  - **Andrii Nakryiko**
+  - **Joe Stringer**
+  - **Brendan Gregg**
+  - **Daniel Borkmann**
+  - **Lorenz Bauer**
+- **AGENDA:**
+  - KP: Roadmap [slides](https://docs.google.com/presentation/d/1bsGgk_bxuhHxCxc_UXxEa62R-prAX0eNpwkT19_OeFY/edit#slide=id.g14930a8517c_0_9) some slides have been added). Folks please add slides
+    - KP might not be able to make it to this instance
+  - Lisa Caywood walked us through her email about ebpf.foundation/projects and the BSC discussed her questions
+    - Keep landscape projects off foundation projects page
+    - Could link from BSC membership page to projects that are represented, e.g., anchor at ebpf.io/projects
+    - Daniel suggested we include efforts like BPF standardization
+    - Also add documentation
+      - Best practices for distributions
+      - ?
+    - ACTION (?): create a list with relevant links (+blurb?)
+      - Below could be under menu item "Initiatives" or "Featured Work" and highlight ongoing efforts, e.g. similar design as project 'boxes'
+        - Brendan: BPF guidelines
+        - Dave: standardization
+        - KP: BPF roadmap
+        - Daniel: ecosystem report
+        - Daniel: community events
+          - Events we co-org, sponsor and plan to increase user base
+          - (but isn't that marketing committee, on a different page?)
+  - Minutes
+    - 1 week to revise private notes in this document
+    - 1 week after meeting, GB chair publishes to [https://github.com/ebpffoundation/bsc](https://github.com/ebpffoundation/bsc)
+      - GB chair or BSC chair?
+      - Should be LF PM?
+  - Public meeting references
+    - Typically the Weds biweekly meetings are open to BSC and invitees only (subject to charter)
+    - Typically the thurs BPF office hours is completely open with topics proposed ahead of time on a first come, first serve basis. BSC members attend this regularly. Canceled if there is no agenda. We should advertise this more widely.
+    - BSC ML: bsc@lists.ebpf.foundation
+  - Joe reported on projects and BSC membership in preparation for nominations
+    - Two-week period to poll for candidates
+    - Goal for candidate pool next BSC meeting, using LPC to recruit/scout out possible candidates
+
 ## Meeting #19 - 2022-08-24
 
 - **Duration:**
