@@ -16,6 +16,99 @@ something was not correctly represented from the meeting. The BSC chair
 will then finalize and notify the GB chair about it. Silent deadline is
 one week after the BSC meeting took place.
 
+## Meeting #29 - 2023-02-08
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **Dave Thaler**
+- **Participants:**
+  - **Dave Thaler**
+  - **KP Singh**
+  - **Andrii Nakryiko**
+  - **Brendan Gregg**
+  - **Lorenz Bauer**
+  - **Alexei**
+  - **Daniel**
+- **AGENDA**
+  - [Lorenz] Employed at Isovalent now
+    - This means there are three BSC members, which is against our charter
+    - Will come back to this if Joe joins, regarding charter/BSC election status
+  - IO Visor discussion
+    - Previous AI Joe: reach out Fulvio, plus invitation of both of them to BSC meeting
+    - Email from Sridhar re Yunsong Lu
+  - IETF prep, report on previous AIs
+    - Previous AI Dave: request side-meeting
+    - Previous AI Daniel: announcing to bpf@vger to Cc ietf list for doc changes related to standardization
+    - Previous AI Dave: till March 13th posting snapshot of internet draft of BPF RFC
+    - Status of BOF request
+  - [Dave, Daniel] Landscape projects
+    - How do we deal with "projects" that have an eBPF component or mode but also have non-eBPF components/modes?
+    - Is the answer the same or different for ebpf.io vs ebpf.foundation (incl. BSC eligibility)?
+    - Various different cases:
+      - Calico
+      - Falco
+      - clang/LLVM
+      - gcc
+      - Linux
+      - …
+  - Continue [BPF Technical Roadmap - Google Slides](https://docs.google.com/presentation/d/1bsGgk_bxuhHxCxc_UXxEa62R-prAX0eNpwkT19_OeFY/edit#slide=id.g14930a8517c_0_0)
+    - [Dave] Windows BPF roadmap discussion
+  - KP: psABI = "processor specific" ABI https://refspecs.linuxfoundation.org/elf/IA64-SysV-psABI.pdf
+  - Publishing BSC minutes on [bsc/minutes.md at master · ebpffoundation/bsc (github.com)
+](https://github.com/ebpffoundation/bsc/blob/master/minutes.md)[IETF 116 Hackathon | IETF Community Wiki](https://wiki.ietf.org/en/meeting/116/hackathon)
+
+## Meeting #28 - 2023-01-25
+
+- **Duration:**
+  - **1h**
+- **Chair:**
+  - **Daniel Borkmann**
+- **Participants:**
+  - **Brendan Gregg**
+  - **Andrii Nakryiko**
+  - **Dave Thaler**
+  - **Alexei Starovoitov**
+  - **Joe Stringer**
+  - **Lisa Caywood**
+- **AGENDA**
+  - [Joe] Update on LF / iovisor \<\> eBPF foundation
+    - Sridhar reached out to Yunsong to check how eBPF foundation + iovisor would work.
+    - Yunsong's PoV:
+      - Non-overlapping scope where eBPF foundation could subsume iovisor
+      - iovisor could join eBPF foundation
+      - iovisor scope:
+        - Virtualized in-kernel I/O, doesn't strictly say it has to be eBPF
+      - Yunsong likely at IETF
+    - No reach out yet to Fulvio, discussion continues
+    - **AI Joe:** reach out Fulvio, plus invitation of both of them to BSC meeting
+  - [Brendan] Strategy with regards to startups trying to own an important piece of eBPF ecosystem behind closed doors and/or as patented technology
+    - Defensive publication for prior art
+    - Example:
+      - Placing ideas into technical roadmap of BSC
+      - Blog posts on ideas
+    - Should we file defensive patents as a foundation?
+      - Price  tag ~100k per patent
+      - Foundation potentially could do that if we see fit
+    - Encouraging to upstream core infra pieces into kernel, cannot live OOT
+      - Example: fast uprobes
+  - [Dave] update on prep for IETF and Internet-Draft submission
+    - [Re: [Bpf] [Tools-discuss] reStructuredText (rst) to xml2rfc? (ietf.org)](https://mailarchive.ietf.org/arch/msg/bpf/f9L2rdNYGc-ekJL1dxA9owogFlg/)
+      - Example/draft output from tool:  [https://htmlpreview.github.io/?https://raw.githubusercontent.com/ebpffoundation/ebpf-docs/pdf/draft-thaler-bpf-isa.html](https://htmlpreview.github.io/?https://raw.githubusercontent.com/ebpffoundation/ebpf-docs/pdf/draft-thaler-bpf-isa.html)
+        - Auto-updated from master branch via GH action
+    - BPF BOF likely to get approved, list of proposals:
+      - [https://datatracker.ietf.org/meeting/important-dates/](https://datatracker.ietf.org/meeting/important-dates/)
+      - BOF request expand to 3h or another side-meeting
+      - Side-meeting not going into proceedings, side-meeting before the BOF scheduled
+      - **AI Dave:** request side-meeting
+      - [https://datatracker.ietf.org/doc/bofreq-thaler-bpf-ebpf/](https://datatracker.ietf.org/doc/bofreq-thaler-bpf-ebpf/)
+      - **AI Daniel:** announcing to bpf@vger to Cc ietf list for doc changes related to standardization
+      - **AI Dave:** till March 13th posting snapshot of internet draft of BPF RFC
+      - BPF ELF format wip draft: [ebpf-docs-1/rst at elf · dthaler/ebpf-docs-1 (github.com)](https://github.com/dthaler/ebpf-docs-1/tree/elf/rst)
+  - [AI: all] Continue to extend [BPF Technical Roadmap - Google Slides](https://docs.google.com/presentation/d/1bsGgk_bxuhHxCxc_UXxEa62R-prAX0eNpwkT19_OeFY/edit#slide=id.g14930a8517c_0_0)
+    - [Dave] Windows BPF roadmap discussion
+    - To be continued next meeting
+
 ## Meeting #27 - 2023-01-11
 
 - **Duration:**
