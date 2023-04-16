@@ -16,6 +16,177 @@ something was not correctly represented from the meeting. The BSC chair
 will then finalize and notify the GB chair about it. Silent deadline is
 one week after the BSC meeting took place.
 
+## Meeting #32 - 2023-04-05
+
+- **Duration:**
+- **Chair:**
+  - **KP Singh**
+- **Participants:**
+  - **Daniel Borkmann**
+  - **Joe Stringer**
+  - **Kenny Paul**
+  - **Dan Brown**
+  - **Brendan Gregg**
+  - **Alexei Starovoitov**
+  - **Andrii Nakryiko**
+- **AGENDA:**
+  - eBPF foundation messaging from marketing committee [Dan]
+    - Generalization from the kernel to privileged system context
+    - Broader message around generality and beyond kernel
+  - Iovisor meeting [Kenny]
+    - I/O visor can move to BPF-F after sending a formal request
+      - Upcoming sub-projects should be able to apply, some logistics need to be figured out.
+      - [Joe] We need to make this low overhead and low friction.
+      - eBPF or I/O visor is up-to the community of the project
+      - Give users an objective criteria to select their foundation.
+        - Kenny: Some pros and cons.
+        - Projects get legal entities?
+          - Clarify if there are legal implications of project joining one foundation or the other.
+      - TL; DR roadblock for I/O visor joining eBPF-F has been removed.
+
+  - Update from IETF116 [Dave/Alexei/Daniel]
+    - OASIS:
+      - Main seen as putting rubber stamp, but less strong as IETF, so vendors would prefer IETF RFC instead as it has wider industry reach
+    - Licensing side-meeting:
+      - Dual license of the doc seems okay, no road block from IETF side. IETF legal looking into it, but for now no specific issues come to their mind.
+      - We might need to put the docs into subdir with ‘note well‘ doc so contributors are aware that their patch will in the end feed into current/future RFCs
+      - IETF legal will get back to us within next 2-3 weeks
+    - BOF went well, generally no objections from IETF community on forming a working group for the standardization effort
+      - [Slides:](https://datatracker.ietf.org/meeting/116/session/bpf/)
+      - [Summary notes:](https://mailarchive.ietf.org/arch/msg/bpf/JTUytbt_kEscF0oC_P8LvRREFo0/)
+    - Charter side-meeting:
+      - Applying feedback from BOF and discussion on deliverables from BPF wg in particular whether charter needs to be refined or scoped down in some areas (like cross-platform map/prog types)
+      - [Latest:](https://github.com/ekline/bpf/blob/main/charter-ietf-bpf.txt)
+    - ^^^AI(everyone): Please look at the IETF Charter document and share your thoughts.
+  - BPF Technical roadmap details have been filled out for Linux, quick walk through and we should publish it
+    - [Roadmap](https://docs.google.com/document/d/1IbYCopXI_pyhlAQAwMDjalF1cc9k2NOfFuMzvNJItLQ/edit#heading=h.4rb6lqa4huig)
+    - Finalize details for windows too.
+
+## Meeting #31 - 2023-03-22
+
+- **Duration:**
+- **Chair:**
+  - **Alexei Starovoitov**
+- **Participants:**
+  - **David Vernet**
+  - **Andrii Nakryiko**
+  - **Brendan Gregg**
+  - **Alexei Starovoitov**
+  - **Daniel Borkmann**
+  - **Lisa Caywood**
+  - **Dave Havey**
+  - **Dan Brown**
+  - **Joe Stringer**
+  - **Mykola Lysenko**
+  - **Manu Bretelle**
+- **AGENDA:**
+  - Lisa: [core messaging doc](https://docs.google.com/document/d/1ws6DxSA91XvHVFhPzsf1y3645OYY3PXr1_Zc4bfd3Ko/edit#heading=h.ymrt225km0jh)
+    - Looks good
+    - Next steps is marketing group to iterate to make it more concrete
+    - AI(KP): Update with security enhancements based on eBPF.
+    - KP: Linux-specific - Kernel modules vs. eBPF implementations. Could be blog posts. Different user journey / developer workflows with benefits when taking an eBPF path.
+    - How will it be used?
+      - Internal guide for how to approach content creation
+    - Misconceptions
+      - Security
+      - Complex programs
+      - Gartner: eBPF – While it is realistic for technology vendors and hyperscalers, most enterprises lack the expertise and skills necessary to use eBPF. [Blog](https://blogs.gartner.com/andrew-lerner/2021/10/11/networking-hype-cycle-2021/)
+  - IETF <> [OASIS](https://en.wikipedia.org/wiki/OASIS_\(organization\)) as standardization body, pro/con
+    - [OASIS-OPEN](https://www.oasis-open.org/)
+    - Well-established, published standards for XML, Virt-I/O
+    - Process eventually goes through ISO for recognition
+    - Relatively short timelines for steps in the process
+    - Can we reach out to others that previously went through this process? Get their perspective?
+      - [Virt-I/O](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=virtio)
+      - [Michael Tsirkin](ms@redhat.com)
+      - Questions:
+        - How was the process for v1.0? What about v1.1?
+        - What was the feedback process like with OASIS?
+    - Community aspect - who will contribute to the standard
+      - How would Technical Advisory Group (TAG) work in OASIS?
+    - How do new iterations of documents work?
+      - Full doc or extensions/errata/etc.
+  - Discuss licensing of BPF doc vs IETF licensing requirements
+    - Currently GPL+BSD, question wrt IETF process
+    - GPL - makes internal kernel copy clearer
+    - BSD-only seems fine, but we would need to discuss with the contributors to the files.
+      - Some kernel uapi headers have used single permissive license already, so there is some precedence.
+    - non-BSD license is a no-go.
+  - [BPF Technical Roadmap](https://docs.google.com/presentation/d/1bsGgk_bxuhHxCxc_UXxEa62R-prAX0eNpwkT19_OeFY/edit#slide=id.g14930a8517c_0_0)
+    - What's the best way to publish this technical roadmap?
+    - Publish to ebpf.foundation
+    - KP to work with Dan Brown on this.
+
+## Meeting #30 - 2023-03-08
+
+- **Duration:**
+- **Chair:**
+  - **Joe Stringer**
+- **Participants:**
+  - **Dave Thaler**
+  - **KP Singh**
+  - **Andrii Nakryiko**
+  - **Brendan Gregg**
+  - **Alexei Starovoitov**
+  - **Daniel Borkmann**
+  - **Lisa Caywood**
+- **AGENDA:**
+  - Review previous action items
+    - [Participate – eBPF](https://ebpf.foundation/participate/)
+    - FYI - [Labs now up](https://ebpf.io/get-started/)
+      - We could create more
+      - We can use these for IETF hackathon
+      - Question(Dave): Does Isovalent want to contribute these to the foundation?
+      - FYI also for marketing committee.
+      - AI(Daniel): Talk to Liz Rice about this.
+  - Update from Lisa - new marketing person from LF
+    - Figuring out marketing strategy etc.
+  - IETF update
+    - Dave: [IETF 116 Meeting Agenda](https://datatracker.ietf.org/meeting/116/agenda/)
+    - 5 interesting items:
+      - Hackathon (sat/sun)
+      - Welcome (sun)
+      - BPF session (mon)
+      - Hackdemo Happy Hour	
+      - Side meeting yet to be scheduled
+    - Deadline for drafts 5pm PT next Monday
+      - AI(Dave): Snapshots for instruction set + ELF proposals
+      - AI(Everyone): Register for remote participation
+        - Link: [IETF Registration](https://registration.ietf.org/116/)
+  - IOVisor subprojects: Invite drafted to IOVisor board
+    - [Document](https://docs.google.com/document/d/1gU3ATGrUX3w7J1FoaKClZ2IXskqe3xx1fOhj73_UK1g/edit)
+    - Next step: Invite Yunsong + Fulvio onto an upcoming BSC session
+      - Likely 5 April
+      - Sridhar+Kenny should also be invited for LF context
+      - AI(Dave): Extend an invite
+  - Landscape projects, List thread from Reza Ramezanpour
+    - [Related PR:](https://github.com/ebpf-io/ebpf.io-website/pull/349)
+    - Last notes do not have a conclusion
+    - Example (KP): Project migrating to BPF. When can it be added as emerging project?
+    - Dave: Falco, Calico, even Linux fails this point:
+      - The project must be using eBPF as its underlying core technology, in other words, a project would lose its purpose if the eBPF parts are removed.
+    - Proposal:
+      - "It must encourage the deployment/use of" BPF.
+      - CCC language example: “accelerate the adoption of”
+      - Two steps:
+      - Action on Calico ebpf.io PR - AI(Daniel): [Update: Add project Calico to the projects page by frozenprocess · Pull Request #349 · ebpf-io/ebpf.io-website (github.com)](https://github.com/ebpf-io/ebpf.io-website/pull/349)
+      - Language update to landscape requirements, on both ebpf.io and ebpf.foundation - AI(KP)
+        - Ebpf.foundation doc to update: [bsc/project-progression-policy.md at master · ebpffoundation/bsc (github.com)](https://github.com/ebpffoundation/bsc/blob/master/project-progression-policy.md#iii-requirements-for-technical-projects)
+        - Ebpf.io doc to update: [ebpf.io-website/faq.jsx at master · ebpf-io/ebpf.io-website (github.com)](https://github.com/ebpf-io/ebpf.io-website/blob/master/src/components/pages/project-landscape/faq/faq.jsx)
+      - Guard against “eBPF washing”: Default install on common platforms deploys with BPF programs?
+      - Brendan: Title at the top: "The following projects use BPF at the core of the project"
+        - Potentially curated list from BSC at the eBPF foundation page
+      - Brendan: ‘eBPF recommended project’
+      - Lisa: Avoid product / company links. Stick to OSS projects.
+      - Dave: foundation currently gives visibility to non-foundation landscape projects, at [Projects – eBPF](https://ebpf.foundation/projects/) but it’s out of date compared to ebpf.io. Merging the calico PR on ebpf.io will not add Calico to the ebpf.foundation page, notably. Need a separate PR or process to “recognize” it from the foundation.
+      - Foundation page should also list ongoing engagements/projects that have BSC involvement
+        - BPF standardization @ IETF
+        - Technical Roadmap
+        - Organization of BPF technical confs
+        - …
+      - Lisa: Role of the foundation here, messaging.
+        - AI(Lisa): Share the brainstorm doc with the BSC list
+
 ## Meeting #29 - 2023-02-08
 
 - **Duration:**
