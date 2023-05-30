@@ -16,6 +16,171 @@ something was not correctly represented from the meeting. The BSC chair
 will then finalize and notify the GB chair about it. Silent deadline is
 one week after the BSC meeting took place.
 
+## Meeting #35 - 2023-05-17
+
+- **Duration:**
+- **Chair: Daniel Borkmann**
+- **Participants:**
+  - **Daniel Borkmann**
+  - **Dave Thaler**
+  - **Dan Brown**
+  - **Joe Stringer**
+  - **Alexei Starovoitov**
+  - **Brendan Gregg**
+  - **Andrii Nakryiko**
+  - **KP Singh**
+- **AGENDA**
+  - Quick status webinar functionality [Dan]
+    - Rough ETA for webinar functionality next month
+  - Charter and elections process [Lisa/Joe/Dave]
+    - Options:
+      - Current categories e.g. runtime, lib, etc as we have today
+      - Lisa's proposal: Dropping categories and instead:
+        - Active contributors to landscape projects
+          - Nr commits/PR may not say much / can be gamed
+          - Issues: large projects like LLVM may just have small BPF related group
+        - Brendan's suggestion: people eligible "you have demonstrated that you furthered the eBPF ecosystem"
+        - Questions:
+          - Should there be seat categories or just a set of unspecified seats?
+          - Voting eligibility based on landscape projects.
+            - Alternative: Any active members
+            - Alternative: Top N active members
+            - Alternative: Should each landscape project get 1 vote (Linux gets 2)?
+          - Practical steps:
+            - BSC compile two lists of individuals in the eBPF community
+              - Nominees (eg 20-50)
+              - Voters (eg 200+)
+            - Before sending vote out, check with nominees if they are interested in participating.
+            - Each year, new BSC reviews these lists.
+            - Voters get an email for something like Condorce to rank nominees. Voting system similar to LF TAB.
+          - AI(Joe): Begin assembling lists
+            - (?) Call for participation
+            - Nominees - start a document shared with BSC to collect names
+            - Voters - Joe to write a script to pull these from landscape projects
+            - Joe to send the list of landscape projects to BSC list to confirm whether we are missing any eBPF community groups
+            - No particular seat categories, half/half swap (2yrs, 1yr overlap).
+            - Needs charter amendment
+          - Deciding split this time
+            - Top 4 nominees this time get 2 year terms, next four get 1 year terms.
+          - AI(Joe): Prepare an alternate wording for the charter amendment that would capture the removal of the member categories without encoding the election process in the charter.
+          - Alexei: We should have a dedicated mailinglist for any voters for the BSC.
+            - These members are the core folks who care about eBPF, regardless of whether they are directly on BSC or not.
+            - E.g. LSF/MM/BPF, LLVM, gcc, projects, etc.
+            - Needs permission from folks we add there
+            - Useful also for CFPs etc
+            - Dave: Don't see the need for this to be "nominees" list. For voting or generally for active BPF contributors, we need a broader list for voters.
+  - [IETF BPF WG charter](https://datatracker.ietf.org/doc/charter-ietf-bpf/): anything to discuss? [Dave]
+    - Already got 1 Yes vote with minor editorial feedback: [[Bpf] Warren Kumari's Yes on charter-ietf-bpf-00-03: (with COMMENT)](https://mailarchive.ietf.org/arch/msg/bpf/8EiHJ4OSjjRsR8e0pzYGrCF-DVM/)
+  - BPF Conformance project submission [Dave]
+    - Goals seem beneficial
+    - Would it remain on Alan's github user? He's indicated that he's open to moving it into a BPF foundation / BSC organization in GitHub.
+    - BSC voted to accept it as a technical project
+    - Next steps
+      - AI(Dave): Reach out to Alan regarding legal procedures
+      - Following that, requires board approval to finalize
+  - Windows roadmap [KP Singh/Dave]
+
+## Meeting #34 - 2023-05-03
+
+- **Duration:**
+- **Chair: Brendan Gregg**
+- **Participants:**
+  - **Joe Stringer**
+  - **Dave Thaler**
+  - **Dan Brown**
+  - **Lisa Caywood**
+  - **Alexei Starovoitov**
+  - **Andrii Nakryiko**
+  - **KP Singh**
+  - **Daniel Borkmann**
+- **AGENDA**
+  - BSC meeting zoom panelist links
+    - AI: Dan Brown will check what we are supposed to use and send out more detailed instructions for next time
+  - bcc security vulnerability - Brendan
+    - No details reported yet, so no embargoed info
+    - Brendan did a blog post about known bcc observability tool issues: DoS and TOCTOU: [https://www.brendangregg.com/blog/2023-04-28/ebpf-security-issues.html](https://www.brendangregg.com/blog/2023-04-28/ebpf-security-issues.html) KP has done a POC [https://www.youtube.com/watch?v=l8jZ-8uLdVU](https://www.youtube.com/watch?v=l8jZ-8uLdVU)
+    - [https://defcon.org/html/defcon-29/dc-29-speakers.html#guo](https://defcon.org/html/defcon-29/dc-29-speakers.html#guo)
+    - Apparently not a known issue
+    - Discussion: could be a kernel panic (e.g., tickling an existing kprobe issue)
+    - Discussion regarding security expectations for some capabilities, e.g. syscall hooks / LSM hooks and TOCTOU. ELF input to libbpf/ btf.
+    - Dave: Could we have a foundation doc to summarize "eBPF and security" we can point people to. Should cover:
+      - eBPF is your friend in security
+      - Observability tools are not security tools (and never have been), and currently need root access anyway
+      - How to configure bpf to be secure (e.g., no interpreter, no unpriv access)
+    - KP: eBPF security post should explore UID 0 vs CAPs. Also note that CVEs don't mean much for us when pretty much any kernel bug could be a CVE as well.
+      - CPE score is higher if a system has unprivileged eBPF
+      - AI: KP to start from Brendan's blog and expand it to a draft foundation doc?
+    - Cilium security doc: [https://github.com/cilium/cilium/blob/main/SECURITY.md](https://github.com/cilium/cilium/blob/main/SECURITY.md)
+    - Github (in Cilium we have this enabled): [https://docs.github.com/en/code-security/getting-started/adding-a-security-policy-to-your-repository](https://docs.github.com/en/code-security/getting-started/adding-a-security-policy-to-your-repository)
+    - Brendan: bcc/bpftrace can add a "security.txt" to summarise security stance and recommendations to file security bugs, and if there is a bug bounty
+    - Dave: once we have projects in the foundation, should we have security response policy guidelines similar to [governance/security-response-policies.md at main · confidential-computing/governance (github.com)](https://github.com/confidential-computing/governance/blob/main/security-response-policies.md)?
+      - Dave to open a PR to discuss in a future BSC meeting
+    - Action items:
+      - BCC README update for security policy
+      - Whitepaper for security guidance for eBPF (KP to draft for BSC review)
+  - LSF/MM/BPF next week!
+    - Joe: can raise awareness of BSC
+  - BPF governing board
+    - point (2): "Voting Process: Importantly on the nominees, and who are all the voters (electorate), avoiding overlap, preferably, between the two,  etc."
+    - Lisa: what about letting, say, the top 50 contributors to recognized BPF related projects vote on the new BSC seats?
+
+## Meeting #33 - 2023-04-19
+
+- **Duration:**
+- **Chair: Andrii Nakryiko**
+- **Participants:**
+  - **Alexei Starovoitov**
+  - **Daniel Borkmann**
+  - **Brendan Gregg**
+  - **Joe Stringer**
+  - **KP Singh**
+  - **Dan Brown**
+  - **Dave Thaler**
+- **AGENDA:**
+  - eBPF Foundation Governing Board kindly requests BSC to resolve the following in the upcoming BSC meeting(s):
+    - Initial term duration: What should be the initial term for the 8 original members (now reduced to 7), and if it is same for all the categories.
+      - Straw man (Dave): Set initial 2-year terms, resolve to nominate 1 year vs. 2 year terms for upcoming election. Do election before October.
+    - Voting Process: Importantly on the nominees, and who are all the voters (electorate), avoiding overlap, preferably, between the two, etc.
+      - Lisa: consider letting contributors to projects participate in a condorcet vote
+      - Dave: [Condorcet Internet Voting Service (civs.us)](https://civs1.civs.us/)
+    - Staggered Voting: If all the members be selected in one go or will it be staggered (preferred). If it is staggered, what will be the order?, tentative dates (if possible), etc.
+      - Charter says staggered. We had previously discussed splitting each category to allow continuity within a category from one election to the next.
+  - From Alexei:
+    - Some iovisor folks expressed several concerns (in attached pdf)
+    - regarding the structure of BSC.
+    - Let's discuss them tomorrow during our meeting.
+    - Nature of funding mechanisms
+      - BSC desire to be able to direct funds towards development of features that will benefit the eBPF community, regardless of whether the target software is a member of the eBPF foundation
+        - Applies to bpftrace etc (also IOVisor)
+        - Applies to LLVM, GCC
+        - Applies to Linux kernel (verifier improvements, docs)
+        - Faster uprobes (no existing project)
+        - Security audits
+        - eBPF tutorials, training material
+        - etc.
+      - There should clearly be some base guidelines
+        - OSS
+        - eBPF as a core technology
+        - Statement of Work
+        - etc
+      - We would need proposed wording + present to board and eventually vote etc. to change the charter.
+        - AI(Alexei): Initial wording proposal regarding projects vs funding independent of foundation project or not
+     - Lisa: Wrt contractors for certain technical work items, this may be possible by just directly proposing to the board:
+        - Cost
+        - Duration
+        - Expected outcome/SOW
+    - Voting membership
+      - Technical projects are making this complicated. One idea: Eliminate them.
+    - Opening the call to the public
+      - Happy to make the meetings transparent for anyone to join in listen-only mode
+      - Primary concern is just moderation - Avoid derailing BSC meeting
+        - Related: Early BPF summit had targeted attacks, profanity, etc.
+      - We can experiment with new Zoom options to test out settings to allow this.
+        - Webinar - Host + Panelists + Viewers.
+        - Panelists may be invited from prior discussion with BSC (just ask)
+        - AI(Dan): Set up the zoom for next meeting
+
+
 ## Meeting #32 - 2023-04-05
 
 - **Duration:**
