@@ -16,6 +16,137 @@ something was not correctly represented from the meeting. The BSC chair
 will then finalize and notify the GB chair about it. Silent deadline is
 one week after the BSC meeting took place.
 
+## Meeting #38 - 2023-06-28
+
+- **Duration:**
+- **Chair: KP Singh**
+- **Participants:**
+  - **Dan Brown**
+  - **KP Singh**
+  - **Lisa Caywood**
+  - **Alexei Starovoitov**
+  - **Andrii Nakryiko**
+  - **Dave Thaler**
+  - **Joe Stringer**
+  - **Brendan Gregg**
+  - **Daniel Borkmann**
+- **Agenda**
+  - IETF WG update (Dave?)
+    - Emails went out a week ago, official announcements sent out.
+    - [IETF 117 Meeting Agenda](https://datatracker.ietf.org/meeting/117/agenda)
+    - WG meets regularly
+      - 1300 Pacific on 24th.
+      - Announce so that folks can book.
+      - The week is fixed, the slots may change.
+    - Alexei: Please CC BPF@IETF and BPF kernel mailing list
+      - AI(Dave): Forward email
+  - BPF Docs repository under eBPF will move to IETF
+    - [http://github.com/ietf-wg-bpf](http://github.com/ietf-wg-bpf)  is the github organization.
+  - [Windows roadmap](https://docs.google.com/presentation/d/1bsGgk_bxuhHxCxc_UXxEa62R-prAX0eNpwkT19_OeFY/edit?usp=sharing) [KP Singh/Dave]
+    - Updating slides live
+    - bpf / [dtrace on windows](https://github.com/microsoft/DTrace-on-Windows) overlap
+    - Alexei: How do we keep parity between BPF on Linux / Windows?
+      - Contributions are welcome.
+      - Reactive
+      - Demand enables parity (similar with ARM).
+      - Runtimes that use PREVAIL often use uBPF, so uBPF feature additions result in demand for corresponding PREVAIL additions (e.g., local calls).
+      - Biased opinion: Standardization.
+      - KP / Dave will work on updating the slides offline.
+  - [Brendan] legal update
+    - Met with Intel legal and Intel open source. Intel legal will draft a proposal, "3 sentences long" for meeting preamble. Set expectations clearly around the public nature of this meeting.
+    - Protect the community and ecosystem from accidental exposure to proprietary information.
+  - [Brendan] Purpose of admitting projects into the foundation + expected process.
+    - Example process from Kubernetes for arranging sessions with a SIG: [https://github.com/kubernetes/sig-security/issues/91](https://github.com/kubernetes/sig-security/issues/91)
+  - Announcement about [IETF | IETF blog & news](https://www.ietf.org/blog/all/)
+  - [Lisa] Joint Board & BSC meeting July 12th
+    - Group is meeting with the board to discuss the changes to the election process with the board in 2 weeks.
+    - If there are any changes that need to be made, these need to be finalized before 12th July.
+    - Brendan: Cannot join, Committee as a "whole" is, why does it need to be done on the 12th and not next year.
+    - Lisa: The group was supposed to be having elections
+
+## Meeting #37 - 2023-06-14
+
+- **Duration:**
+- **Chair: Joe Stringer**
+- **Participants:**
+  - **Dan Brown**
+  - **Daniel Havey**
+  - **KP Singh**
+  - **Lisa Caywood**
+  - **Alexei Starovoitov**
+  - **Andrii Nakryiko**
+  - **Dave Thaler**
+  - **Daniel Borkmann**
+- **Agenda**
+  - [20m] [messaging document](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1ws6DxSA91XvHVFhPzsf1y3645OYY3PXr1_Zc4bfd3Ko%2Fedit%3Fusp%3Dsharing&data=05%7C01%7Cdthaler%40microsoft.com%7C6834fed78eba40e1eb3508db5d36cd97%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638206262221231034%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=wFc5CqBwF1LQvUPbHt6D65RQ9rGwD%2BLTjG5asxaD%2F20%3D&reserved=0) from marketing committee [Lisa/Dan]
+    - Point 1 - wording is a bit loose.
+      - Follow up over email
+    - Point 3 - Angle from hyperscalers is tricky to back up.
+      - Is it about Performance or Production Proven?
+      - The latter.
+      - Discussed what "production" means - includes for example millions of Android devices
+    - Goal: Provide feedback by Tuesday
+  - [20m] Charter amendment proposals
+    - BSC membership
+      - [Proposal](https://github.com/joestringer/bsc/commit/04445829620a3dc8b11c7b87e057a9b79bd465f0)
+        - Nominee eligibility - initially keep it open / undefined in charter?
+        - Voter eligibility - Should be specified in Charter
+    - Direction of funds
+      - [Proposal](https://docs.google.com/document/d/1lT4k4fHHPOeuo1hdjKB-clfHsLfGn9BtTsojcsNysd0/edit)
+
+  - [20m] Continue discussion of BSC charter and elections process [Lisa/Joe/Dave]
+    - [Nominee list brainstorm](https://docs.google.com/document/d/1RqgTjoXAPB5zQxsuVxgCy0vzWjFd_nG1BZZSwm4OJyo/edit?usp=sharing)
+      - Needs a public call for participation
+    - [Voters process and project list](https://docs.google.com/document/d/1PZjefD4cRWcH0xy2GxtpxEXGIYqFUbWNtiKuGdthfnU/edit?usp=drivesdk)
+      - We have a list (
+      - Discussion on difference between ebepf.io / ebpf.foundation.
+  - Project nominations
+    - _Pending IP discussion, may be further bumped to a later session:_
+    - BTFHub ([https://github.com/aquasecurity/btfhub](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Faquasecurity%2Fbtfhub&data=05%7C01%7Cdthaler%40microsoft.com%7C6834fed78eba40e1eb3508db5d36cd97%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638206262221231034%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=KJE1Wz1Wvi%2B8%2BHXdCE9RqZGiS2JXcSpuIT2rku1FTHU%3D&reserved=0)) submission as Technical Project
+    - Libbpfgo ([https://github.com/aquasecurity/libbpfgo](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Faquasecurity%2Flibbpfgo&data=05%7C01%7Cdthaler%40microsoft.com%7C6834fed78eba40e1eb3508db5d36cd97%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638206262221231034%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=2Hr%2FOOwe79VHYJo0GyRPaocqm2TpOD4FYXt591Ehbt4%3D&reserved=0)) submission as Technical Project
+
+## Meeting #36 - 2023-05-31
+
+- **Duration:**
+- **Chair: Dave Thaler**
+- **Participants:**
+  - **Alexei Starovoitov**
+  - **Brendan Gregg**
+  - **Joe Stringer**
+  - **Andrii Nakryiko**
+  - **KP Singh**
+  - **Daniel Borkmann**
+  - **Lisa Caywood**
+- **AGENDA**
+  - Report on May 9 board meeting feedback on BSC report, from [minutes](https://docs.google.com/document/d/1HTDYYYbfeu-BjalMX81CPNSp_1ysnOz56pf4LAbMDYA/edit):
+    - Regarding creating a security whitepaper: "Thomas suggested that Isovalent could help. Thomas added that they have hired a good security researcher analyst who has actually written the security.md for cilium and he would be happy to check if they can volunteer that person to make a first proposal. Isovalent had actually come to this conclusion that this is needed over 2 years ago, and then it failed because they didn't have anybody to actually do a first version. He also said that he is confident that the community will contribute, but the real effort lies in writing this from scratch. Lastly Thomas offered to connect the resource person to the BSC members through the mailing list. Ram added that it is an expected behavior for high-volume systems to drop packets, and having a whitepaper would probably be fine but maybe talking broadly on this through Blog is another option that we could consider. Thomas agreed with this suggestion on writing Blogs."
+      - AI [Daniel/Joe]: talk to Thomas about someone to hold pen on whitepaper
+    - Regarding charter amendments: "2 charter amendments in a future meeting for the Board to actually vote on: one about BSC makeup and one on the direction of funds to projects in general. Though, the direction of funds to projects in general might not require a charter update just an update to the document (project progression policy)", and action to "facilitate a joint session among the Governing Board and BSC together to essentially work out something in a more timely fashion, just to avoid a 3 month process from this point. Both Dave and Lisa agreed to this suggestion by Thomas, and Dave said that BSC may need one or two meetings, which may take a month from now, before they could participate in such a joint meeting"
+      - Proposal: BSC to put together straw-man proposal by June 14 meeting, and plan to schedule joint meeting shortly thereafter for initial discussion with GB.
+    - Lisa drafted the one about BSC makeup
+    - Need a volunteer for funding (meeting #33)
+      - [Prior discussion](https://docs.google.com/document/d/1G33tM2HyDTDG-O04k1by8M3u2pv0j0GcIM9Yo-LFM7k/edit#bookmark=id.xim3jb4mhf39)
+  - IP risks [Brendan]
+    - Scott Nicholas (LF Legal) has a conflict during this time, but will reach out to Intel legal to discuss Windows [roadmap](https://docs.google.com/document/d/1IbYCopXI_pyhlAQAwMDjalF1cc9k2NOfFuMzvNJItLQ/edit#heading=h.4rb6lqa4huig) [KP Singh/Dave]
+    - Brendan's story: don't have private meetings with startups without a legal agreement in place
+    - Brendan's story: not all startups are friendly for the eBPF Foundation's mission
+    - Brendan's story: the only thing that matters is what is signed
+    - Question: is a notice at start of meeting sufficient or do we need evidence of agreement (click I Agree or whatever else)?  **AI: Brendan** to check with legal
+      - Anti-trust slide we also have for GB meetings, is that sufficient?
+      - [https://www.linuxfoundation.org/legal/antitrust-policy](https://www.linuxfoundation.org/legal/antitrust-policy)
+    - Encourage wording when discussing technical solutions on BSC meetings:
+      - _In your Open Source project_, how do you do X?
+    - Option: Can we evaluate projects without meetings, and only call meetings if/when necessary?
+  - IETF update
+    - [https://datatracker.ietf.org/doc/charter-ietf-bpf/](https://datatracker.ietf.org/doc/charter-ietf-bpf/)
+    - Charter sent out for IETF-wide review, comments due by June 10
+    - On agenda of 2023-06-22 IESG telechat
+- Moved to following meeting June 14th:
+  - BTFHub ([https://github.com/aquasecurity/btfhub](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Faquasecurity%2Fbtfhub&data=05%7C01%7Cdthaler%40microsoft.com%7C6834fed78eba40e1eb3508db5d36cd97%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638206262221231034%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=KJE1Wz1Wvi%2B8%2BHXdCE9RqZGiS2JXcSpuIT2rku1FTHU%3D&reserved=0)) submission as Technical Project
+  - Libbpfgo ([https://github.com/aquasecurity/libbpfgo](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Faquasecurity%2Flibbpfgo&data=05%7C01%7Cdthaler%40microsoft.com%7C6834fed78eba40e1eb3508db5d36cd97%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638206262221231034%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=2Hr%2FOOwe79VHYJo0GyRPaocqm2TpOD4FYXt591Ehbt4%3D&reserved=0)) submission as Technical Project
+  - [messaging document](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.google.com%2Fdocument%2Fd%2F1ws6DxSA91XvHVFhPzsf1y3645OYY3PXr1_Zc4bfd3Ko%2Fedit%3Fusp%3Dsharing&data=05%7C01%7Cdthaler%40microsoft.com%7C6834fed78eba40e1eb3508db5d36cd97%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638206262221231034%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=wFc5CqBwF1LQvUPbHt6D65RQ9rGwD%2BLTjG5asxaD%2F20%3D&reserved=0) from marketing committee [Lisa/Dan]
+
+
 ## Meeting #35 - 2023-05-17
 
 - **Duration:**
