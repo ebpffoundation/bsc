@@ -16,6 +16,246 @@ something was not correctly represented from the meeting. The BSC chair
 will then finalize and notify the GB chair about it. Silent deadline is
 one week after the BSC meeting took place.
 
+## Meeting #42 - 2023-08-23
+
+- **Duration:**
+- **Chair: Daniel Borkmann**
+- **Participants:**
+  - **Andrii Nakryiko**
+  - **Brendan Gregg**
+  - **Joe Stringer**
+  - **KP Singh**
+  - **Dave Thaler**
+  - **Dan Brown**
+- **Notes:**
+  - Kumar asked if eBPF foundation could help sponsor travel to LPC
+    - [https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git/log/?qt=author&q=Kumar+Kartikeya+Dwivedi](https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git/log/?qt=author&q=Kumar+Kartikeya+Dwivedi)
+    - General requirements from BSC side for travel sponsorship:
+      - Active contributor to eBPF ecosystem (not limited to just kernel BPF side, but could be other major projects/infrastructure as well)
+      - Intention to submit a CFP for discussion session
+        - (Intention given visa application needs to be submitted earlier before a person knows of the session being accepted)
+    - Process: Someone directly involved in the same project or knowing them prepares a budget proposal.
+    - With regards to Kumar assuming the intention to submit a proposal, BSC has no objections and would give recommendation to fund his travel to GB. (Alexei voted yes via email)
+      - **AI: KP to check with Kumar and to reach out to GB. Kumar could get one of the two free sponsor passes from eBPF foundation assigned so that he can apply for a visa in time (given this process takes longer).**
+  - Request for BSC's official position on:
+
+A large company providing eBPF-based solutions at scale reached out to us as BSC asking if Fortune 500-type companies will be okay with us loading several eBPF programs on their servers. We are curious about what the eBPF community thinks about it.
+
+We chatted with KP Singh from Google and with a few kernel developer from Red Hat and we got contrasting opinions: KP seemed to believe eBPF program signature and verification would be happening soon while Red Hat engineers believed it would not for years and told us they were currently focusing on securing eBPF program distribution and loading (with bpfd). In fact their product management is trying to push/mandate bpfd adoption from the Red Hat side.
+
+We are very curious what you think (and if you had any feedback for large companies on this topic).
+
+- Related: [https://next.redhat.com/2023/07/18/using-ebpf-in-unprivileged-pods/](https://next.redhat.com/2023/07/18/using-ebpf-in-unprivileged-pods/)
+
+- Mailing list pointers from past discussion on topic of bpfd:
+
+  - Meta: [https://lore.kernel.org/bpf/CAEf4BzZKFPDjaXXxSxUQH3-Z\_d6oAXdXa1zgq65Tuf\_sDttVdg@mail.gmail.com/](https://lore.kernel.org/bpf/CAEf4BzZKFPDjaXXxSxUQH3-Z_d6oAXdXa1zgq65Tuf_sDttVdg@mail.gmail.com/)
+  - Google: [https://lore.kernel.org/bpf/CA+khW7h95RpurRL8qmKdSJQEXNYuqSWnP16o-uRZ9G0KqCfM4Q@mail.gmail.com/](https://lore.kernel.org/bpf/CA+khW7h95RpurRL8qmKdSJQEXNYuqSWnP16o-uRZ9G0KqCfM4Q@mail.gmail.com/)
+  - Cilium: [https://lore.kernel.org/bpf/2a9eb424-e767-d76e-df92-5cadd858ead5@iogearbox.net/](https://lore.kernel.org/bpf/2a9eb424-e767-d76e-df92-5cadd858ead5@iogearbox.net/)
+
+- BSC discussion:
+
+  - **[AI: Daniel, Joe: getting back to the company with BSC position] (done)**
+  - There are already at least 4 projects in the overall space of deploying bpf programs: L3AF, bpfd, bumblebee, and Inspektor Gadget.  They have differing but partially overlapping tradeoffs, dependencies, and use cases. bpfd is one project from one vendor, other vendors might have different mechanisms as there is no standard.
+  - BSC not looking to rubber-stamp one approach to BPF program deployment also as there is no one-size fits all approach
+  - Kernel side needs to ensure that there are enough mechanisms to suit the various needs / use-cases
+  - There are various models for deploying programs
+    - Userspace + BPF program(s) go together, tightly integrated
+    - BPF programs are separately managed by a logically central tool
+  - There are various mechanisms
+    - capabilities, token, signing, lsms, etc
+  - Discussion of "npm-style" questions / issues: Are the programs being installed from a legitimate source? Secure supply-chain.
+  - One possible answer: BPF has been designed to be a safe secure sandbox, but people can still write illogical high-overhead and therefore harmful programs with it. As they can with any language.
+  - Alexei (via email): My position is similar to KP's which is: redhat's bpfd or any other daemon based arbitration is not flexible enough to be a generic loader solution for all types of bpf progs.
+
+- Misc items:
+
+  - Follow-up on "Proposal to create a BSC slack channel, need full BSC to weigh in on whether slack or something else":
+    - If everyone is okay, I can create a Whatsapp group for BSC folks. BSC said yes. **[AI: Daniel, Dave wanted to send his number] (done)**
+  - eBPF Foundation Mentorship program
+    - **[AI Daniel] Checking with Sridhar on process related to BSC (done)**
+    - **[AI all] Review the mentorship doc which was sent via email**
+    - **Answer on process:**
+
+      - The process would be:
+
+      - 1. This CFP (with dates) will be made public - This will also go under announcements in the website.
+
+      - 2. Once we receive proposals, it will be brought to BSC for selection and/or approval. BSC will consider availability of the mentor(s) as one of the criteria while selecting/approving.
+
+      - 3. Once BSC approves the project, it will be add to the LF-Mentorship Program.
+
+      - 4. The program will be activated and will be open for potential interns to apply.
+
+      - 5. We will again circulate this LF mentorship program widely.
+
+      - 6. The mentors will select the interns.
+
+      - 7. Once the interns are finalized The program will start - Request will be made to mentors to regularly update BSC on the progress.
+
+  - 2 sponsor passes for LPC are needed for speakers
+    - One potentially for Kumar
+  - Refilling Lorenz' position?
+    - One suggestion was that we could bring Lorenz back.
+    - Currently nobody feels strongly about the need for backfill.
+  - Informational:
+    - eBPF Summit (Sep 13) schedule out: [https://ebpf.io/summit-2023-schedule/](https://ebpf.io/summit-2023-schedule/)
+    - LSF/MM/BPF currently figuring out location logistics, should have more info in September
+    - LPC (Nov 13-16) CFP is still open until Sept 27, we're looking for more submissions for eBPF & net track: [https://lpc.events/](https://lpc.events/)
+
+## Meeting #41 - 2023-08-09
+
+- **Duration:**
+- **Chair: Dave Thaler**
+- **Participants:**
+  - **Dan Brown**
+  - **Joe Stringer**
+  - **Brendan Gregg**
+  - **Dave Thaler**
+- **Notes**
+  - No quorum
+  - Dave reported to the GB that BSC is continuing governance discussion.
+  - BSC focus areas
+    - We started with a charter BSC scope populated from similar wording in other foundations
+    - Reviewed/discussed/iterated on Brendan's wip proposal
+  - Highlighting projects
+    - How to remove entries from landscape projects for inactivity / defunct project
+    - Proposal: Even for emerging projects, require active maintenance
+    - Filed [Require "Emerging" projects to be actively maintained · Issue #463 · ebpf-io/ebpf.io-website (github.com)](https://github.com/ebpf-io/ebpf.io-website/issues/463)
+  - Proposal to create a BSC slack channel, need full BSC to weigh in on whether slack or something else
+    - BSC members should weigh in with what chat systems they are allowed to use.
+    - _This list was not discussed during the meeting and does not need to be in the minutes:_
+
+      - Joe: Prefer Slack, no restriction
+
+      - Brendan: Prefer Slack, no restriction
+
+      - Dave: no preference, no restriction
+
+      - Alexei: Prefer Whatsapp or Signal
+
+      - Dan: Prefer Slack or Whatsapp, no restriction
+
+      - KP:
+
+      - Daniel: Prefer Slack or Whatsapp, no restriction
+
+- **Drafts**
+  - **The BSC:**
+
+A) Summarizes eBPF technical value
+
+B) Summarizes eBPF technical best practices (incl. endorsed projects; production cookbook; security).
+
+C) Provides steering for larger eBPF technical activities (implementations, libraries, bytecode, documentation).
+
+D) Works to resolve cross-platform eBPF needs.
+
+E) Provides thought leadership for broader eBPF related projects (e.g., deployment/L3AF)
+
+F) Maintains a list of core projects.
+
+G) Provides recommendations to the LF to not include particular "sandbox" projects.
+
+H) Pushes the industry to further support eBPF (e.g., technical work with distros).
+
+I) Occasionally selects eBPF projects to meet with to show support, guidance, and encouragement.
+
+J) Recommends the allocation of foundation resources.
+
+- **Project Lifecycle:**
+
+1. **Exists** : On github.
+2. **"Emerging"** : Listed on ebpf.io by anyone (e.g., Isovalent marketing).
+3. **"Sandbox"** (optional): Accepted by the LF as an LF project, therefore contributes/grants IP & trademark rights/permissions to the LF. BSC can veto in rare cases where the project is harmful, but the BSC is not reviewing these in depth, and the BSC will not be asked to review or participate with these projects.
+4. **"Core"** : A small handful of critical eBPF projects selected by the BSC and reviewed by the BSC. (E.g., libbpf, bcc, Windows eBPF, etc.) See prior task (F).
+5. **"Guideline"** : A project recommended by the BSC for a purpose. See prior task (B).
+
+- Discussion
+
+  - Hypothetical e.g.: There are five golang eBPF libraries but we only want to encourage one. All five "exist" and are listed as "emerging." Those that want to be an LF project can apply to the LF and become a "sandbox" project, and some will (between zero and five). The BSC is asked if there is any reason to veto them, and there probably isn't in this case (it's just duplicated work, not, for example, some nasty technical/legal risk). The BSC selects the one that we want to encourage as "core" and the BSC also states this in a guideline doc.
+
+  - "Cookie lickers" and project "squatters": If someone wants to own an important piece before anyone else, but do little or zero work, they may push to be accepted by the LF first as a way to claim ownership of the idea. And they may hope the BSC will help them with details to cement their endorsement. With the above plan, the BSC will only have a chance to veto it becoming a "sandbox" project, and since it sounds ok it shouldn't be vetoed. The LF won't ask the BSC to review it in any more depth. The only involvement by the BSC will be if it does actually get developed and grow important enough to be either considered a core project (task F), part of a guideline doc (task B), or warrant a meeting of encouragement (task I). The BSC does not have the capacity to be involved with every sandbox project.
+
+## Meeting #40 - 2023-07-27
+
+- **Duration:**
+- **Chair: Brendan Gregg**
+- **Participants:**
+  - **Dan Brown**
+  - **Joe Stringer**
+  - **KP Singh**
+  - **Brendan Gregg**
+  - **Alexei Starovoitov**
+  - **Dave Thaler**
+- **Agenda**
+  - eBPF Documentary: More interviewees? None come to mind.
+  - eBPF Summit: If elections are happening can announce at summit
+    - Overlaps with all systems go
+    - Close to Tracing summit (Spain) Alexei is presenting
+    - Close to Linux security summit
+  - Messaging (Dan) no further comments
+  - Marketing "state of eBPF" report
+    - State, use cases, next year
+    - Convey security state? - KP
+  - Report on IETF BPF WG meeting 2023-07-24
+    - Good meeting
+  - Charter voting
+    - Why implement voting for the BSC?
+
+      - There has been no problem for eBPF with the make up of the BSC or BSC itself. It was raised that if there had, we would have been told specifics by now. Months ago, someone new to eBPF from the LF raised one problem of the BSC being unwelcoming but did not back it up with specifics, and, the BSC, who is in contact with the community daily and has been for years, has not heard of any problem themselves.
+
+      - The notion of voting was inherited from the copy-n-pasted charter text that we didn't pay much attention to when the foundation was created. In a way, the voting model is at the forefront because we didn't study what we copy-n-pasted.
+
+    - What models should we consider?
+
+      - Taking a step back: It was asked if anyone had a strong preference for a particular model (e.g.: BDFL team, maintainers decide, voting); no one on the call did. Dave strongly wants a model that is documented and matches reality in a year from now.
+
+    - What should we do now?
+
+      - Because no one feels strongly for anything, the only proposal discussed at length is the voting process inherited from the charter text, which Joe has been turning into a documented proposal.
+
+      - This proposal can be made a separate "process document" that the charter refers to, and can be updated as we fine tune things and learn of unexpected issues.
+
+      - It was proposed that the first round of voting be in some ways a trial run for the process.
+
+      - We will follow up over email so that others on the BSC who were not on the call have a chance to discuss.
+
+    - What happens if no one (or few people) vote?
+
+      - Do we want a minimum number of votes to make an election valid? Seems not.
+
+      - It was proposed that the GB or BSC "ratify" an election and checks that things worked, and voters were informed and had a chance to vote.
+
+## Meeting #39 - 2023-07-12
+
+- **Duration:**
+- **Chair: Alexei Starovoitov**
+- **Participants:**
+  - **Dan Brown**
+  - **KP Singh**
+  - **Dave Thaler**
+  - **Joe Stringer**
+  - **Brendan Gregg**
+  - **Daniel Borkmann**
+  - **Mike Dolan**
+- **Agenda**
+  - update from GB
+    - "the BSC will set initial term length so as to stagger elections"
+    - charter October deadline is ambiguous
+    - Ideas:
+
+      - Only let maintainers e.g. of major projects vote
+
+      - Solves various issues
+
+        - Keeps bad actors out
+
+        - Keeps MS in for eBPF for windows
+
+    - Voters: "Projects/individuals that have helped advance the progress of eBPF in the last year."
+    - Joe will send a list of voters and nominees to bsc mailing list.
+
 ## Meeting #38 - 2023-06-28
 
 - **Duration:**
