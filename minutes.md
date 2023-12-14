@@ -1,13 +1,5 @@
 # Meetings & Meeting Notes
 
-Color codes:
-
--   **Black:** pre-meeting / topics for meeting
-
--   **Red:** post-meeting / results from discussions
-
--   **Green:** action item (AI) for individual BSC members
-
 **Important:** All BSC members are expected to regularly check the
 summarized meeting notes from the BSC chair (the chair will notify the
 BSC mailing list once notes are cleaned up), and members either propose
@@ -15,6 +7,108 @@ changes to the notes or add comments on some of the sections if
 something was not correctly represented from the meeting. The BSC chair
 will then finalize and notify the GB chair about it. Silent deadline is
 one week after the BSC meeting took place.
+
+## Meeting #45 - 2023-12-13
+
+-   **Duration:**  52m
+-   **Chair:**  Alexei
+-   **Participants: **
+    -   Dan Brown
+    -   Joe Stringer
+    -   Brendan Gregg
+    -   Daniel Borkmann
+    -   Alan Jowett
+    -   KP Singh
+    -   Alexei Starovoitov
+    -   Mike Dolan
+    -   Andrii Nakryiko
+-   **Notes:**
+    -   Reviewing latest charter proposal from GB
+        -   Discussion of 2023-08-09 expectations around BSC responsibilities
+        -   Clarified that BSC will fulfill the roles described in the new section 4.
+        -   Action item for BSC: Review & provide input to proposal doc for remaining items:
+            -   [https://docs.google.com/document/d/1sFBTqXxwR9RN3QoplhE54sOD29h3BKjPOnsMsugui8k/edit](https://docs.google.com/document/d/1sFBTqXxwR9RN3QoplhE54sOD29h3BKjPOnsMsugui8k/edit)
+    -   Project lifecycle:
+        -   How to manage expectations around the level of endorsement from BPF foundation membership - sandbox vs. core etc.
+        -   Mike Dolan: The website doesn't have this project progression policy currently. Need to resolve the differences.
+    -   Status of outstanding proposals for projects to join:
+        -   BTFHub, libbpf-go proposals are blocked on legal notice
+        -   Brendan to follow up with where we got to most recently on legal notice and forward to Mike to unblock next steps.
+    -   How can BSC better communicate with GB?
+        -   Per 2023-10-18 discussion, KP volunteered to be primary contact currently.
+        -   How does BSC understand when GB meetings are occurring?
+            -   Dan volunteered to follow up with Sridhar to ensure BSC gets visibility into meeting times.
+        -   How many BSC members can attend GB meetings?
+            -   Intention is  _at least_  one member joins, per charter.
+            -   Mike: For the charter discussions, it may help to have additional members.
+        -   What is the intended way for BSC to understand the discussions during GB meetings?
+            -   BSC representative to attend GB meeting and relay summary to BSC during following BSC meeting.
+    -   Directed funding requests
+        -   Daniel: Interested in a proposal for funding specific LLVM work.
+            -   Related: Discussions with academia during LPC, interested in exploring options to help push that forward.
+        -   Dan: We can set up a shared list with GB + BSC to facilitate these discussions.
+    -   Security talk @ kubecon EU: submitted, awaiting CFP response
+    -   LSFMM dates confirmed for May 13-15, 2024:  [https://events.linuxfoundation.org/lsfmmbpf/](https://events.linuxfoundation.org/lsfmmbpf/)
+        -   Budget submission proposed to LF for sponsorship.
+
+## Meeting #44 - 2023-11-29
+
+-   **Duration:**
+-   **Chair: Joe Stringer**
+-   **Participants: **
+    -   Dan Brown
+    -   Joe Stringer
+    -   Brendan Gregg
+    -   Daniel Borkmann
+    -   Alan Jowett
+-   **Notes:**
+    -   No quorum
+    -   Brainstorming eBPF security messaging
+        -   CFP for Kubecon co-located Cilium + eBPF day as a forcing function to start developing threat modeling / security messaging for eBPF community
+        -   We should write the slides anyway, we'll want the content for other conferences or for preparing marketing messaging / text.
+        -   Dan mentioned there is a budget line item submission for 2024 funding to help prepare material for security messaging. BSC can help draft the core content and we could look to have additional help to finalize format / text.
+        -   [Brainstorm link](https://docs.google.com/document/d/1IQWdGFIzqebatIMdNIZuzlfsXTkYlSiI0A57WPBxsuE/edit)
+    -   eBPF on Windows status
+        -   Signing
+        -   JIT vs HVCI
+        -   Porting tools to Windows
+
+## Meeting #43 - 2023-10-18
+
+-   **Duration:**
+-   **Chair: KP Singh**
+-   **Participants: **
+    -   Dan Brown
+    -   Joe Stringer
+    -   KP Singh
+    -   Alexei Starovoitov
+    -   Brendan Gregg
+    -   Daniel Borkmann
+    -   Dave Thaler
+    -   (regrets from Andrii)
+-   **Notes:**
+    -   Status on proposal to board
+        -   BSC previously reviewed Mike's proposal.
+        -   Understand that there was no quorum from GB during 2023-10-17 session.
+    -   Any result of board vote on election?
+        -   No, there was no quorum
+    -   IETF
+        -   Dave would like to propose an additional editor for RFCs for someone with rights in the Linux kernel, to share the responsibilities.
+        -   Call for a working group to adopt a draft: Feedback date has passed. Awaiting bpf working group chair confirmations in IETF tooling.
+        -   Call for agenda open since Oct 9
+        -   Topic (Alexei): Memory model - send to WG chairs
+        -   BPF working session 09:30 - 11:30 Prague time Monday 6th
+    -   Dave plans to step down from BSC at the end of the LPC week November 17th and has nominated Alan Jowett. Alexei seconds. KP thirds. All present agree provided the new process is ratified by the board. This shows the BSCs commitment to continuity and faith in the proposed process.
+    -   Linux Plumbers Conference
+        -   Schedule forming up:  [https://lpc.events/event/17/sessions/155/#20231113](https://lpc.events/event/17/sessions/155/#20231113)
+        -   Considering to split BPF out from networking in 2024
+        -   38 talks (packed schedule)
+        -   Foundation has allocated all (but one in person) the passes to various speakers
+    -   LSF/MM/BPF contract is being negotiated for SLC
+        -   Targeting May 13-15 2024
+    -   BSC chair to represent at upcoming GB meetings
+        -   Next Nov session has LPC conflict, during the morning conference sessions.
+        -   Dan offered to bring up the conflict for scheduling that session
 
 ## Meeting #42 - 2023-08-23
 
