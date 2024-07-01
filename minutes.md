@@ -42,7 +42,7 @@ one week after the BSC meeting took place.
     - Kernel Recipes: Pending.
     - Kubecon NA co-location: Awaiting event organizers
 
-## Meeting #48 - 2023-02-21
+## Meeting #48 - 2024-02-21
 
 - **Duration**: 48m
 - **Chair**: Joe
