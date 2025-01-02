@@ -17,11 +17,17 @@ The technical direction of the ecosystem is problem-centric. We encourage and su
 ## **Members**
 
 Andrii Nakryiko, Meta (2021-10-13 to present)
+
 Brendan Gregg, Intel (2021-10-13 to present)
+
 Daniel Borkmann, Isovalent (2021-10-13 to present)
+
 KP Singh, Google (2021-10-13 to present)
+
 Joe Stringer, Isovalent (2021-10-13 to present)
+
 Alexei Starovoitov, Meta (2021-10-13 to present)
+
 Alan Jowett, Microsoft (2023-11-29 to present)
 
 **Emeritus**
