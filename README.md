@@ -45,5 +45,3 @@ The BSC meets roughly every two weeks and all meeting minutes can be found in th
 ## **Contact Us**
 
 Email: bsc at lists.ebpf.foundation
-
-If you want to add a topic or speak at one of the next BSC meetings, please submit the [form on the website](https://ebpf.foundation/participate/). A BSC committee member will reach out to you if they add it to the agenda.
