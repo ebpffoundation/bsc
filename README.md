@@ -3,12 +3,10 @@
 The eBPF Foundation eBPF Steering Committee (BSC) is the technical and collaborative governing body of the eBPF community as defined in the Foundation [charter](https://ebpf.foundation/charter/). Our mission is to advance the development, adoption, and best practices of eBPF technology through consensus-driven, community-led initiatives. We are responsible for:
 
 * **Defining and maintaining the technical vision** for the eBPF ecosystem, ensuring it aligns with industry needs and innovations.
-* **Creating a cohesive architecture** for eBPF, ensuring alignment between tools,libraries, and projects, and fostering integration across various use cases.
-* **Collecting and acting on feedback** from users, contributors, and industry leaders and using it to inform the evolution of eBPF and community standards.
-* **Standardizing interfaces** between components, where necessary, by aligning on best practices and implementations.
-* **Encouraging and promoting common practices** across the eBPF ecosystem to ensure consistency, reliability, and ease of adoption.
+* **Coordinating collaboration** for eBPF, ensuring alignment between tools, libraries, and projects, and fostering integration across various use cases.
+* **Coordinating and evangelizing eBPF** projects and technologies to current and potential developers and users.
 * **Identifying areas of collaboration** with adjacent open source communities (e.g., kernel, compiler, and debugger communities) to encourage the widespread adoption and integration of eBPF technology.
-* **Proposing priorities** to the Governing Board for events, travel funds, and other investments that will foster growth in the eBPF developer and user communities.
+* **Proposing priorities** to the Governing Board for community developmen actives, events, travel funds, and other investments that will foster growth in the eBPF developer and user communities.
 
 By facilitating collaboration and transparency, the eBPF Foundation BSC strives to guide the long-term success of eBPF for all.
 
