@@ -16,8 +16,6 @@ The technical direction of the ecosystem is problem-centric. We encourage and su
 
 ## **Members**
 
-Andrii Nakryiko, Meta (2021-10-13 to present)
-
 Brendan Gregg, Intel (2021-10-13 to present)
 
 Daniel Borkmann, Isovalent (2021-10-13 to present)
@@ -33,8 +31,10 @@ Alan Jowett, Microsoft (2023-11-29 to present)
 **Emeritus**
 
 Lorenz Bauer (2021-10-13 to 2023-02-08)
+
 Dave Thaler (2021-10-13 to 2023-10-18)
 
+Andrii Nakryiko, Meta (2021-10-13 to 2024-10-30)
 
 ## **Membership and Voting**
 
